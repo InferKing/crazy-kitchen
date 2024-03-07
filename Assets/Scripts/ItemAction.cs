@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class ItemAction : MonoBehaviour, IInitializable
 {
-    private IInteractable _interactable;
+    private Interactable _interactable;
     private EventBus _bus;
     public void Initialize()
     {
@@ -16,14 +16,20 @@ public class ItemAction : MonoBehaviour, IInitializable
     {
         if (_interactable != signal.data) 
         { 
-            _interactable?.OnExit();
+            if (_interactable != null)
+            {
+                _interactable.OnExit();
+            }
             _interactable = signal.data;
             _interactable.OnEnter();
         }
     }
     private void OnNoInteractable(NoInteractableSignal signal)
     {
-        _interactable?.OnExit();
+        if (_interactable != null)
+        {
+            _interactable.OnExit();
+        }
         _interactable = null;
     }
     private void OnInputDown(InputDownSignal signal)

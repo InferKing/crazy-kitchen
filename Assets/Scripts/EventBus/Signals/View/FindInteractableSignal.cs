@@ -1,7 +1,7 @@
 public class FindInteractableSignal
 {
-    public readonly IInteractable data;
-    public FindInteractableSignal(IInteractable data)
+    public readonly Interactable data;
+    public FindInteractableSignal(Interactable data)
     {
         this.data = data;
     }
