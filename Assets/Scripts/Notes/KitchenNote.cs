@@ -13,7 +13,7 @@ public class KitchenNote : Interactable
         _fsm.AddTransition(new Transition(
             "Idle",
             "Waiting",
-            transition => true // "true" can be relpaced with integrated order or smth
+            transition => true // "true" can be replaced with integrated order or smth
         ));
 
         _fsm.Init();
@@ -26,13 +26,13 @@ public class KitchenNote : Interactable
     public override void OnEnter()
     {
         EventBus bus = ServiceLocator.Instance.Get<EventBus>();
-        bus.Invoke(new ShowItemTextSignal("Подошел"));
+        bus.Invoke(new ShowItemTextSignal(Constants.keyPressENote));
     }
 
     public override void OnExit()
     {
         EventBus bus = ServiceLocator.Instance.Get<EventBus>();
-        bus.Invoke(new ShowItemTextSignal(""));
+        bus.Invoke(new ShowItemTextSignal(string.Empty));
 
     }
 }
