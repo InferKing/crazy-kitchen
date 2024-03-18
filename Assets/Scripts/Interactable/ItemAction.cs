@@ -3,7 +3,7 @@ using UnityEngine;
 public class ItemAction : MonoBehaviour, IInitializable
 {
     private bool _canInteract = true;
-    private Interactable _interactable;
+    private Interactable _interactable, _activeInteractable;
     private EventBus _bus;
     public void Initialize()
     {
@@ -37,25 +37,41 @@ public class ItemAction : MonoBehaviour, IInitializable
     }
     private void OnInputDown(InputDownSignal signal)
     {
-        if (_interactable == null) return;
-        if (Input.GetKeyDown(KeyCode.E) && _canInteract)
+        if (Input.GetKeyDown(KeyCode.E) && _canInteract && _interactable != null)
         {
-            _interactable.Interact();
+            if (!_interactable.CanGet)
+            {
+                _interactable.Interact();
+            }
+            else if (_activeInteractable == null)
+            {
+                _interactable.Interact();
+                _activeInteractable = _interactable;
+            }
+            else if(_interactable.TryCombine(_activeInteractable, out bool stayInHand))
+            {
+                if (!stayInHand)
+                {
+                    _activeInteractable = null;
+                }
+            }
+            
         }
-        if (Input.GetKeyDown(KeyCode.G))
+        else if (Input.GetKeyDown(KeyCode.G) && _activeInteractable != null)
         {
             _bus.Invoke(new ItemDroppedSignal());
-            _interactable.Interact();
-            _bus.Invoke(new LockInteractSignal(false));
+            _activeInteractable.Drop();
+            _activeInteractable = null;
+
+            // при наведении на ингредиент и при этом нет ничего в руках - используется interact
+            // при наведении на ингредиент и при этом есть что-то в руках - используется combine наведенного предмета
+            // при нажатии G активный предмет просто бросается
+            // активным предметом считается тот, что можно взять в руки, а не просто взаимодействовать
         }
     }
     private void OnLockInteract(LockInteractSignal signal)
     {
-        _canInteract = !signal.data;
-        if (!_canInteract)
-        {
-            _bus.Invoke(new ShowItemTextSignal("Нажмите G чтобы бросить"));
-        }
+        //_canInteract = !signal.data;
     }
     private void OnDisable()
     {

@@ -22,7 +22,7 @@ public class CameraRaycast : MonoBehaviour, IInitializable
 #endif
         if (Physics.Raycast(ray, out hit, _maxDistance, _interactableMask))
         {
-            _bus.Invoke(new FindInteractableSignal(hit.collider.GetComponent<Interactable>()));
+            _bus.Invoke(new FindInteractableSignal(hit.collider.GetComponentInParent<Interactable>()));
 #if UNITY_EDITOR
             Debug.DrawRay(ray.origin, ray.direction * _maxDistance, Color.green);
 #endif

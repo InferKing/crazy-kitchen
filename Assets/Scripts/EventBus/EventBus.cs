@@ -18,7 +18,6 @@ public class EventBus : IService
         {
             _signalCallbacks.Add(key, new List<CallbackWithPriority>() { new(priority, callback) });
         }
-
         _signalCallbacks[key] = _signalCallbacks[key].OrderByDescending(x => x.Priority).ToList();
     }
 
@@ -32,6 +31,9 @@ public class EventBus : IService
                 var callback = obj.Callback as Action<T>;
                 callback?.Invoke(signal);
             }
+#if UNITY_EDITOR
+            Debug.Log($"{key} invoked");
+#endif
         }
     }
 

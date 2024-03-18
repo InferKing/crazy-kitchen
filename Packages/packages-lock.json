@@ -7,6 +7,13 @@
       "dependencies": {},
       "hash": "eb590da7fb7680684ffc1b6801cc50c46417c38d"
     },
+    "com.nighttraincode.nightpool": {
+      "version": "https://github.com/MeeXaSiK/NightPool.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "fb0218774b66a8e3d99505c5eefda3ff8b41ba2d"
+    },
     "com.unity.collab-proxy": {
       "version": "2.2.0",
       "depth": 0,
