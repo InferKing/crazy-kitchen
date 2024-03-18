@@ -19,7 +19,7 @@ public class Knife : Interactable
     {
         stayInHand = false;
         if (interactable == null) return false;
-        if (interactable is Meat || interactable is SlicedMeat || interactable is ChoppedMeat)
+        if (interactable is Meat || interactable is SlicedMeat)
         {
             GameObject new_mesh = interactable.GetGameObject();
             //ServiceLocator.Instance.Get<EventBus>().Invoke(new DestroyMeDaddySignal(interactable));
