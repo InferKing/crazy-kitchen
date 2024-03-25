@@ -3,27 +3,21 @@ using UnityEngine;
 
 public class Ingredient : Interactable
 {
-    private EventBus _bus;
-    private void Start()
-    {
-        Rb = GameObjectsToChange[0].GetComponent<Rigidbody>();
-        _bus = ServiceLocator.Instance.Get<EventBus>();
-    }
     public override void Interact()
     {
         Rb.isKinematic = true;
-        _bus.Invoke(new ItemInteractedSignal(this));
+        Bus.Invoke(new ItemInteractedSignal(this));
     }
     public override void OnEnter()
     {
         base.OnEnter();
-        _bus.Invoke(new ShowItemTextSignal(Constants.keyPressEItem));
+        Bus.Invoke(new ShowItemTextSignal(Constants.keyPressEItem));
     }
 
     public override void OnExit()
     {
         base.OnExit();
-        _bus.Invoke(new ShowItemTextSignal(string.Empty));
+        Bus.Invoke(new ShowItemTextSignal(string.Empty));
     }
 
     public override void Combine(Interactable interactable)

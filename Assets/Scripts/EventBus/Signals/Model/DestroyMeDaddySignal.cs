@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class DestroyMeDaddySignal
 {
-    public readonly MonoBehaviour data;
-    public DestroyMeDaddySignal(MonoBehaviour data)
+    public readonly GameObject data;
+    public DestroyMeDaddySignal(GameObject data)
     {
         this.data = data;
     }

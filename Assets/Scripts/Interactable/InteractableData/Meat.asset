@@ -15,3 +15,4 @@ MonoBehaviour:
   <Collider>k__BackingField: {fileID: 5330327848776292157, guid: c28ebd58ee33d0841b493d2d7d0505e1, type: 3}
   <Renderer>k__BackingField: {fileID: 5903681843449131599, guid: c28ebd58ee33d0841b493d2d7d0505e1, type: 3}
   <Rigidbody>k__BackingField: {fileID: 2714587966156638227, guid: c28ebd58ee33d0841b493d2d7d0505e1, type: 3}
+  <Filter>k__BackingField: {fileID: 5174889589612551916, guid: c28ebd58ee33d0841b493d2d7d0505e1, type: 3}

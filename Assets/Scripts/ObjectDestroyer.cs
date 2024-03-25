@@ -4,23 +4,20 @@ using System.Collections;
 
 public class ObjectDestroyer : MonoBehaviour
 {
-    private List<MonoBehaviour> _objectsToDestroy;
+    private List<GameObject> _objectsToDestroy;
     private EventBus _bus;
     private Coroutine _coroutine;
     void Start()
     {
         _bus = ServiceLocator.Instance.Get<EventBus>();
         _bus.Subscribe<DestroyMeDaddySignal>(OnDestroyMeDaddy);
-        _objectsToDestroy = new List<MonoBehaviour>();
+        _objectsToDestroy = new List<GameObject>();
     }
 
     private void OnDestroyMeDaddy(DestroyMeDaddySignal signal)
     {
-        if (signal.data is not ObjectDestroyer)
-        {
-            _objectsToDestroy.Add(signal.data);
-            _coroutine ??= StartCoroutine(DestroyInNextFrame());
-        }
+        _objectsToDestroy.Add(signal.data);
+        _coroutine ??= StartCoroutine(DestroyInNextFrame());
     }
     private IEnumerator DestroyInNextFrame()
     {

@@ -1,10 +1,10 @@
-using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Pot : Dishes
+public class Pan : Dishes
 {
+    [SerializeField] private List<PanPrefab> _panPrefabList;
     public override void Combine(Interactable interactable)
     {
         throw new System.NotImplementedException();

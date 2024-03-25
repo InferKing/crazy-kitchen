@@ -1,17 +1,47 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Meat : Ingredient
 {
-    [SerializeField] private GameObject _gameObjectToSpawn;
+    [SerializeField] private List<InteractableData> _data;
+    public GameObject _objectToInstantiate;
+    private int _counter = 0;
+    private void Awake()
+    {
+        UpdateNewComponents(0);
+    }
     public override GameObject GetGameObject()
     {
-        GameObject go = base.GetGameObject();
-        if (CanSpawn)
+        if (!CanSpawn)
         {
-            GameObject _new = Instantiate(_gameObjectToSpawn);
-            _new.transform.position = go.transform.position;
-            Debug.Log(_new.transform.position);
+            return null;
         }
-        return go;
+        _counter += 1;
+        GameObject obj = Instantiate(_objectToInstantiate);
+        obj.transform.position = transform.position;
+        if (_counter >= _data.Count)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            UpdateNewComponents(_counter);
+            return obj;
+        }
+        return null;
+    }
+    public virtual void UpdateNewComponents(int index)
+    {
+        BoxCollider boxCollider = GetComponent<BoxCollider>();
+        boxCollider.center = _data[index].Collider.center;
+        boxCollider.size = _data[index].Collider.size;
+        MeshRenderer meshRenderer = GetComponent<MeshRenderer>();
+        meshRenderer.materials = _data[index].Renderer.sharedMaterials;
+        Rigidbody rb = GetComponent<Rigidbody>();
+        rb.mass = _data[index].Rigidbody.mass;
+        rb.collisionDetectionMode = _data[index].Rigidbody.collisionDetectionMode;
+        Rb = rb;
+        MeshFilter filter = GetComponent<MeshFilter>();
+        filter.mesh = _data[index].Filter.sharedMesh;
     }
 }
