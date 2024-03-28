@@ -58,7 +58,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 09680c34c77ac054dbb7d6f582a5c3c9, type: 2}
     - target: {fileID: 919132149155446097, guid: 4d024c5aca021794e89e6f21c54377f1, type: 3}
       propertyPath: m_Name
-      value: veal_n4.2_low Variant
+      value: 1-5 sliced meat low
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 4d024c5aca021794e89e6f21c54377f1, type: 3}
       propertyPath: m_Layer
@@ -74,6 +74,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4d024c5aca021794e89e6f21c54377f1, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2261731897873716330}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4d024c5aca021794e89e6f21c54377f1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 138897669977751036}
   m_SourcePrefab: {fileID: 100100000, guid: 4d024c5aca021794e89e6f21c54377f1, type: 3}
 --- !u!1 &6843467627685246218 stripped
 GameObject:
@@ -128,3 +131,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &138897669977751036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6843467627685246218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43969d9db5a3ba141a82f55e16720bd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _canGet: 1
+  _initRotation: {x: 0, y: 0, z: 0}
+  _placeRotation: {x: 0, y: 0, z: 0}
+  _data:
+  - {fileID: 11400000, guid: 9edcf21aff5083749866772ed7dc0af7, type: 2}

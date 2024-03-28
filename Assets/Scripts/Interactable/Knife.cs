@@ -11,6 +11,10 @@ public class Knife : Interactable
     {
         stayInHand = false;
         if (interactable == null) return false;
+        if (interactable is ChoppedMeat)
+        {
+            return false;
+        }
         if (interactable is Meat || interactable is SlicedMeat)
         {
             GameObject new_mesh = interactable.GetGameObject();

@@ -32,15 +32,28 @@ public class Meat : Ingredient
     public virtual void UpdateNewComponents(int index)
     {
         BoxCollider boxCollider = GetComponent<BoxCollider>();
-        boxCollider.center = _data[index].Collider.center;
-        boxCollider.size = _data[index].Collider.size;
+        if (_data[index].Collider != null)
+        {
+            boxCollider.center = _data[index].Collider.center;
+            boxCollider.size = _data[index].Collider.size;
+        }
         MeshRenderer meshRenderer = GetComponent<MeshRenderer>();
-        meshRenderer.materials = _data[index].Renderer.sharedMaterials;
+        if (_data[index].Renderer != null)
+        {
+            meshRenderer.materials = _data[index].Renderer.sharedMaterials;
+        }
         Rigidbody rb = GetComponent<Rigidbody>();
-        rb.mass = _data[index].Rigidbody.mass;
-        rb.collisionDetectionMode = _data[index].Rigidbody.collisionDetectionMode;
+        if (_data[index].Rigidbody != null)
+        {
+            rb.mass = _data[index].Rigidbody.mass;
+            rb.collisionDetectionMode = _data[index].Rigidbody.collisionDetectionMode;
+        }
         Rb = rb;
         MeshFilter filter = GetComponent<MeshFilter>();
-        filter.mesh = _data[index].Filter.sharedMesh;
+        if (_data[index].Filter != null)
+        {
+            filter.mesh = _data[index].Filter.sharedMesh;
+
+        }
     }
 }
