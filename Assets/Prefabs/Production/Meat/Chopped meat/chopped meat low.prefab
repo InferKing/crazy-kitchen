@@ -130,7 +130,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!114 &-1022115157469603887
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144,7 +144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _canGet: 1
-  _initRotation: {x: 0, y: 0, z: 0}
+  _initRotation: {x: 90, y: 0, z: 0}
   _placeRotation: {x: 0, y: 0, z: 0}
   _data:
   - {fileID: 11400000, guid: 11afa5ba568479f46b18d02da65514e9, type: 2}
