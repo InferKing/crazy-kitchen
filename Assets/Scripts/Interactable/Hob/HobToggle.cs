@@ -49,8 +49,21 @@ public class HobToggle : Interactable
         _fsm.Init();
 
     }
-    
-    public void Toggle()
+    public override void OnEnter()
+    {
+        base.OnEnter();
+        Bus.Invoke(new ShowItemTextSignal(Constants.keyPressEItem));
+    }
+    public override void OnExit()
+    {
+        base.OnExit();
+        Bus.Invoke(new ShowItemTextSignal(string.Empty));
+    }
+    public override void Drop()
+    {
+        // no drop?
+    }
+    public override void Interact()
     {
         _fsm.OnLogic();
     }
