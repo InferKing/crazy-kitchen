@@ -1,6 +1,7 @@
 public class Constants
 {
+    public const string keyPressEKnife = "Нажмите Е чтобы взять нож";
     public const string keyPressENote = "Нажмите E чтобы взять заказ";
-    public const string keyPressEItem = "Нажмите E чтобы подобрать";
+    public const string keyPressEItem = "Нажмите E чтобы использовать";
     public const string keyPressEDishes = "Нажмите Е чтобы взять посуду";
 }

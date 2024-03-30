@@ -19,7 +19,7 @@ public class Interactable : BaseInteractable
     public bool CanGet { get { return _canGet; } }
     public EventBus Bus { get { return _bus; } }
     // public LockRotationState LockRotation { get { return _lockRotationState; } }
-    private void Start()
+    protected virtual void Start()
     {
         Rb = gameObject.GetComponent<Rigidbody>();
         _bus = ServiceLocator.Instance.Get<EventBus>();

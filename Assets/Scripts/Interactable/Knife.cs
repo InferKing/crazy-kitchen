@@ -25,7 +25,7 @@ public class Knife : Interactable
     public override void OnEnter()
     {
         base.OnEnter();
-        Bus.Invoke(new ShowItemTextSignal(Constants.keyPressEItem));
+        Bus.Invoke(new ShowItemTextSignal(Constants.keyPressEKnife));
     }
 
     public override void OnExit()
