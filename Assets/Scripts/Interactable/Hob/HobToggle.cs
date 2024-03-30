@@ -54,4 +54,5 @@ public class HobToggle : Interactable
     {
         _fsm.OnLogic();
     }
+    public HobToggleState GetState() => _fsm.ActiveStateName; 
 }
