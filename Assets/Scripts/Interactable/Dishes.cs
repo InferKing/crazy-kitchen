@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Dishes : Interactable
 {
-    [SerializeField] private List<InteractableData> _prefabsToChange;
+    [SerializeField] private GameObject _placeToIngredient;
     private List<Ingredient> _ingredients = new();
     public IReadOnlyList<Ingredient> Ingredients { get { return _ingredients; } }
     public void AddIngredient(Ingredient ingredient)
@@ -22,5 +22,13 @@ public class Dishes : Interactable
     {
         Rb.isKinematic = true;
         Bus.Invoke(new ItemInteractedSignal(this));
+    }
+    public virtual void PlaceIngredient(Ingredient placeToIngredient)
+    {
+        placeToIngredient.transform.SetParent(transform);
+        placeToIngredient.transform.localPosition = _placeToIngredient.transform.localPosition;
+        placeToIngredient.Rb.isKinematic = true;
+        placeToIngredient.GetComponent<Collider>().enabled = false;
+        placeToIngredient.transform.rotation = Quaternion.Euler(placeToIngredient.InitRotation);
     }
 }

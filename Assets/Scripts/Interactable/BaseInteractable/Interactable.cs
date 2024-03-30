@@ -5,6 +5,8 @@ public class Interactable : BaseInteractable
 {
 
     [SerializeField] private bool _canGet = true;
+    [Header("Rotation")]
+    [SerializeField] private LockRotationState _lockRotationState = LockRotationState.XZ;
     [SerializeField] private Vector3 _initRotation = Vector3.zero;
     [SerializeField] private Vector3 _placeRotation = Vector3.zero;
     private EventBus _bus;
@@ -15,6 +17,7 @@ public class Interactable : BaseInteractable
     public Vector3 IgnoreYRotation { get { return new Vector3(InitRotation.x, transform.rotation.eulerAngles.y, InitRotation.z); } }
     public bool CanGet { get { return _canGet; } }
     public EventBus Bus { get { return _bus; } }
+    public LockRotationState LockRotation { get { return _lockRotationState; } }
     private void Start()
     {
         Rb = gameObject.GetComponent<Rigidbody>();
@@ -50,6 +53,7 @@ public class Interactable : BaseInteractable
         {
             outline = gameObject.AddComponent<Outline>();
             outline.OutlineWidth = 5;
+            outline.OutlineMode = Outline.Mode.OutlineVisible;
         }
     }
     public override void OnExit()
