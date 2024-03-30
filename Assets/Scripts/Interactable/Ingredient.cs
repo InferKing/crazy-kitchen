@@ -28,6 +28,14 @@ public class Ingredient : Interactable
     {
         stayInHand = false;
         if (interactable == null) return false;
+        if (interactable is Dishes)
+        {
+            Dishes dish = interactable as Dishes;
+            dish.AddIngredient(this);
+            dish.PlaceIngredient(this);
+            stayInHand = true;
+            return true;
+        }
         if (interactable is Knife)
         {
             stayInHand = true;

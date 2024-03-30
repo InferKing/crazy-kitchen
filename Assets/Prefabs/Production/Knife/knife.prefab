@@ -10,19 +10,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: d93438b09ace17643804ebc482422e96, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d93438b09ace17643804ebc482422e96, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 13.337887
+      value: 3.352
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d93438b09ace17643804ebc482422e96, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.2567
+      value: 1.154
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d93438b09ace17643804ebc482422e96, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 8.395103
+      value: 0.482
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d93438b09ace17643804ebc482422e96, type: 3}
       propertyPath: m_LocalRotation.w
@@ -144,5 +144,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _canGet: 1
-  _initRotation: {x: 0, y: 0, z: 0}
+  _lockRotationState: 0
+  _initRotation: {x: -90, y: 0, z: 0}
   _placeRotation: {x: 6, y: -76, z: 57}

@@ -1,9 +1,15 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Pan : Dishes
 {
+    public override void Drop()
+    {
+        transform.DORotate(IgnoreYZRotation, 0.1f);
+        Rb.isKinematic = false;
+    }
     public override void Combine(Interactable interactable)
     {
         throw new System.NotImplementedException();

@@ -8,6 +8,16 @@ public class Dishes : Interactable
     [SerializeField] private GameObject _placeToIngredient;
     private List<Ingredient> _ingredients = new();
     public IReadOnlyList<Ingredient> Ingredients { get { return _ingredients; } }
+    public override void OnEnter()
+    {
+        base.OnEnter();
+        Bus.Invoke(new ShowItemTextSignal(Constants.keyPressEDishes));
+    }
+    public override void OnExit()
+    {
+        base.OnExit();
+        Bus.Invoke(new ShowItemTextSignal(string.Empty));
+    }
     public void AddIngredient(Ingredient ingredient)
     {
         _ingredients.Add(ingredient);
