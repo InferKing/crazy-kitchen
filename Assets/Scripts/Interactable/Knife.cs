@@ -11,6 +11,10 @@ public class Knife : Interactable
     {
         stayInHand = false;
         if (interactable == null) return false;
+        if (interactable is ChoppedMeat)
+        {
+            return false;
+        }
         if (interactable is Meat || interactable is SlicedMeat)
         {
             GameObject new_mesh = interactable.GetGameObject();
@@ -21,7 +25,7 @@ public class Knife : Interactable
     public override void OnEnter()
     {
         base.OnEnter();
-        Bus.Invoke(new ShowItemTextSignal(Constants.keyPressEItem));
+        Bus.Invoke(new ShowItemTextSignal(Constants.keyPressEKnife));
     }
 
     public override void OnExit()

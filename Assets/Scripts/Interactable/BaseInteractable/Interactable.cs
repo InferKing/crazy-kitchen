@@ -5,6 +5,8 @@ public class Interactable : BaseInteractable
 {
 
     [SerializeField] private bool _canGet = true;
+    // хз нужно ли в итоге вводить состояния блокировки поворотов или хуй забить и в зависимости от объекта самому прописывать
+    // [SerializeField] private LockRotationState _lockRotationState = LockRotationState.XZ;
     [SerializeField] private Vector3 _initRotation = Vector3.zero;
     [SerializeField] private Vector3 _placeRotation = Vector3.zero;
     private EventBus _bus;
@@ -13,9 +15,11 @@ public class Interactable : BaseInteractable
     public Vector3 InitRotation { get { return _initRotation; } }
     public Vector3 PlaceRoatation { get { return _placeRotation; } }
     public Vector3 IgnoreYRotation { get { return new Vector3(InitRotation.x, transform.rotation.eulerAngles.y, InitRotation.z); } }
+    public Vector3 IgnoreYZRotation { get { return new Vector3(InitRotation.x, transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z); } }
     public bool CanGet { get { return _canGet; } }
     public EventBus Bus { get { return _bus; } }
-    private void Start()
+    // public LockRotationState LockRotation { get { return _lockRotationState; } }
+    protected virtual void Start()
     {
         Rb = gameObject.GetComponent<Rigidbody>();
         _bus = ServiceLocator.Instance.Get<EventBus>();
@@ -50,6 +54,7 @@ public class Interactable : BaseInteractable
         {
             outline = gameObject.AddComponent<Outline>();
             outline.OutlineWidth = 5;
+            outline.OutlineMode = Outline.Mode.OutlineVisible;
         }
     }
     public override void OnExit()
