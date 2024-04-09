@@ -130,9 +130,9 @@ MonoBehaviour:
   _placeRotation: {x: 0, y: 0, z: 0}
   _rotations:
   - {x: 17.347, y: 0, z: 0}
+  - {x: -22.653, y: 0, z: 0}
   - {x: -62.653, y: 0, z: 0}
-  - {x: -62.653, y: 0, z: 0}
-  - {x: -62.653, y: 0, z: 0}
+  - {x: -102.653, y: 0, z: 0}
 --- !u!4 &1765538398069408498 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 944c5bb31a3e2dc4cb739b0f35be6f7e, type: 3}
@@ -271,7 +271,11 @@ MonoBehaviour:
   _canGet: 0
   _initRotation: {x: 0, y: 0, z: 0}
   _placeRotation: {x: 0, y: 0, z: 0}
+  _interactableMask:
+    serializedVersion: 2
+    m_Bits: 8
   _toggle: {fileID: 4022105358117276223}
+  _maxDistance: 0.2
 --- !u!1001 &2824517519308870349
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -405,7 +409,11 @@ MonoBehaviour:
   _canGet: 0
   _initRotation: {x: 0, y: 0, z: 0}
   _placeRotation: {x: 0, y: 0, z: 0}
+  _interactableMask:
+    serializedVersion: 2
+    m_Bits: 8
   _toggle: {fileID: 2972242002346616687}
+  _maxDistance: 0.2
 --- !u!1001 &4955998036137570537
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -659,9 +667,9 @@ MonoBehaviour:
   _placeRotation: {x: 0, y: 0, z: 0}
   _rotations:
   - {x: 17.347, y: 0, z: 0}
+  - {x: -22.653, y: 0, z: 0}
   - {x: -62.653, y: 0, z: 0}
-  - {x: -62.653, y: 0, z: 0}
-  - {x: -62.653, y: 0, z: 0}
+  - {x: -102.653, y: 0, z: 0}
 --- !u!4 &6649257490305812508 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 944c5bb31a3e2dc4cb739b0f35be6f7e, type: 3}
@@ -802,9 +810,9 @@ MonoBehaviour:
   _placeRotation: {x: 0, y: 0, z: 0}
   _rotations:
   - {x: 17.347, y: 0, z: 0}
+  - {x: -22.653, y: 0, z: 0}
   - {x: -62.653, y: 0, z: 0}
-  - {x: -62.653, y: 0, z: 0}
-  - {x: -62.653, y: 0, z: 0}
+  - {x: -102.653, y: 0, z: 0}
 --- !u!1001 &7190875129700410430
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -940,9 +948,9 @@ MonoBehaviour:
   _placeRotation: {x: 0, y: 0, z: 0}
   _rotations:
   - {x: 17.347, y: 0, z: 0}
+  - {x: -22.653, y: 0, z: 0}
   - {x: -62.653, y: 0, z: 0}
-  - {x: -62.653, y: 0, z: 0}
-  - {x: -62.653, y: 0, z: 0}
+  - {x: -102.653, y: 0, z: 0}
 --- !u!1001 &7833010924690044455
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1071,7 +1079,11 @@ MonoBehaviour:
   _canGet: 0
   _initRotation: {x: 0, y: 0, z: 0}
   _placeRotation: {x: 0, y: 0, z: 0}
+  _interactableMask:
+    serializedVersion: 2
+    m_Bits: 8
   _toggle: {fileID: 3731389779304253437}
+  _maxDistance: 0.2
 --- !u!4 &7727834540698898892 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 0f26fa189fc3af24885b70585ebcaff3, type: 3}
@@ -1210,4 +1222,8 @@ MonoBehaviour:
   _canGet: 0
   _initRotation: {x: 0, y: 0, z: 0}
   _placeRotation: {x: 0, y: 0, z: 0}
+  _interactableMask:
+    serializedVersion: 2
+    m_Bits: 8
   _toggle: {fileID: 3856682427094746054}
+  _maxDistance: 0.2

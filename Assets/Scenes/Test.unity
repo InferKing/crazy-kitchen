@@ -448,30 +448,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2972242002346616687, guid: 87886b5dae07a9748aa7e33d78d13239, type: 3}
-      propertyPath: _canGet
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3352771608496906454, guid: 87886b5dae07a9748aa7e33d78d13239, type: 3}
-      propertyPath: _canGet
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3731389779304253437, guid: 87886b5dae07a9748aa7e33d78d13239, type: 3}
-      propertyPath: _canGet
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3856682427094746054, guid: 87886b5dae07a9748aa7e33d78d13239, type: 3}
-      propertyPath: _canGet
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4022105358117276223, guid: 87886b5dae07a9748aa7e33d78d13239, type: 3}
-      propertyPath: _canGet
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4776213518239415473, guid: 87886b5dae07a9748aa7e33d78d13239, type: 3}
-      propertyPath: _canGet
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4849678101136676610, guid: 87886b5dae07a9748aa7e33d78d13239, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -516,17 +492,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5026954973753017969, guid: 87886b5dae07a9748aa7e33d78d13239, type: 3}
-      propertyPath: _canGet
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5189928139950542264, guid: 87886b5dae07a9748aa7e33d78d13239, type: 3}
       propertyPath: m_Name
       value: Hob
-      objectReference: {fileID: 0}
-    - target: {fileID: 9097926657725110432, guid: 87886b5dae07a9748aa7e33d78d13239, type: 3}
-      propertyPath: _canGet
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

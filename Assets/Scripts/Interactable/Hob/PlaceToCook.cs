@@ -26,17 +26,23 @@ public class PlaceToCook : Interactable
 #endif
         if (Physics.Raycast(ray, out hit, _maxDistance, _interactableMask))
         {
-            Debug.Log(hit.collider.gameObject.name);
+            IsEmpty = false;
 #if UNITY_EDITOR
             Debug.DrawRay(ray.origin, ray.direction * _maxDistance, Color.green);
 #endif
+        }
+        else
+        {
+            IsEmpty = true;
+            _collider.enabled = true;
+            _dish = null;
         }
     }
     public override bool TryCombine(Interactable interactable, out bool stayInHand)
     {
         stayInHand = false;
         if (interactable == null) return false;
-        if (interactable is Dishes)
+        if (interactable is Dishes && IsEmpty)
         {
             // сковородка забирается сама, а не по указке. это не позволяет проверять, есть ли сейчас сковородка на плите. 
             // решение этому:
@@ -52,7 +58,6 @@ public class PlaceToCook : Interactable
     }
     public void ToStove(Dishes dish)
     {
-        if (!IsEmpty) return;
         _dish = dish;
         _dish.transform.SetParent(transform);
         _dish.transform.eulerAngles = _dish.InitRotation;
