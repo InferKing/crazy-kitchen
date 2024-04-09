@@ -7,13 +7,14 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: frying_pan
+  m_Name: frying_pan_v2
   m_Shader: {fileID: 47, guid: 0000000000000000f000000000000000, type: 0}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
   - _METALLICGLOSSMAP
   - _NORMALMAP
+  - _PARALLAXMAP
   - _SPECGLOSSMAP
   m_InvalidKeywords: []
   m_LightmapFlags: 4
@@ -27,7 +28,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BumpMap:
-        m_Texture: {fileID: 2800000, guid: 6a13163ec2fcec84a8ce527fb3d68bc2, type: 3}
+        m_Texture: {fileID: 2800000, guid: 89c822cb10a760d4c851851927ca3d6b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -47,23 +48,23 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 2552d4b3463d9344bbade53cd8755d0c, type: 3}
+        m_Texture: {fileID: 2800000, guid: 7eb742f9cee77684d8c7f5b7b98e7586, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
-        m_Texture: {fileID: 2800000, guid: 48dcf0d4d336ecc4ca481315cd405731, type: 3}
+        m_Texture: {fileID: 2800000, guid: e284188ef3c6d8e44bdf35eb1be21768, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
-        m_Texture: {fileID: 2800000, guid: c3d055fa44702ef468387abd98452b57, type: 3}
+        m_Texture: {fileID: 2800000, guid: 5af29f36fcb65ad4bb352da0408a63ba, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ParallaxMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: d26498194b855f14a9fae611abfedc96, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
-        m_Texture: {fileID: 2800000, guid: 9e8a5936b1f2cc54fa1e372c3e18bcb0, type: 3}
+        m_Texture: {fileID: 2800000, guid: aa592735a6ecfc547b8de2659ae1b5dc, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
@@ -78,7 +79,7 @@ Material:
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
-    - _Parallax: 0.02
+    - _Parallax: 0.005
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
