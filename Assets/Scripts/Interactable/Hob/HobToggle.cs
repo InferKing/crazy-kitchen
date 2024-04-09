@@ -5,10 +5,11 @@ using UnityEngine;
 using UnityHFSM;
 
 
-public class HobToggle : Interactable
+public class HobToggle : Interactable, IObservable
 {
     [SerializeField] private List<Vector3> _rotations;
     private StateMachine<HobToggleState> _fsm;
+    private List<IObserver> _observers = new();
     private void OnValidate()
     {
         int length = Enum.GetValues(typeof(HobToggleState)).Length;
@@ -67,5 +68,29 @@ public class HobToggle : Interactable
     {
         _fsm.OnLogic();
     }
-    public HobToggleState GetState() => _fsm.ActiveStateName; 
+    public HobToggleState GetState() => _fsm.ActiveStateName;
+
+    public void AddObserver(IObserver o)
+    {
+        if (o != null && !_observers.Contains(o))
+        {
+            _observers.Add(o);
+        }
+    }
+
+    public void RemoveObserver(IObserver o)
+    {
+        if (o != null && _observers.Contains(o))
+        {
+            _observers.Remove(o);
+        }
+    }
+
+    public void NotifyObservers()
+    {
+        foreach (var o in _observers)
+        {
+            o.Update();
+        }
+    }
 }
