@@ -63,10 +63,10 @@ public class PlaceToCook : Interactable, IObserver
         _collider.enabled = false;
     }
 
-    void IObserver.Update()
+    public void UpdateInfo()
     {
         _state = _toggle.GetState();
-
+        Debug.Log(_state);
     }
     private IEnumerator Cook()
     {
@@ -75,7 +75,7 @@ public class PlaceToCook : Interactable, IObserver
             yield return new WaitForSeconds(1);
             if (_state is not HobToggleState.Off)
             {
-
+                // TODO: Ingredient should be cooked when toggle is on
             }
         }
     }
