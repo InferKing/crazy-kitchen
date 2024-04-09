@@ -39,7 +39,14 @@ public class ItemAction : MonoBehaviour, IInitializable
     {
         if (Input.GetKeyDown(KeyCode.E) && _canInteract && _interactable != null)
         {
-            if (!_interactable.CanGet)
+            if (_interactable.TryCombine(_activeInteractable, out bool stayInHand))
+            {
+                if (!stayInHand)
+                {
+                    _activeInteractable = null;
+                }
+            }
+            else if (!_interactable.CanGet)
             {
                 _interactable.Interact();
             }
@@ -48,14 +55,6 @@ public class ItemAction : MonoBehaviour, IInitializable
                 _interactable.Interact();
                 _activeInteractable = _interactable;
             }
-            else if(_interactable.TryCombine(_activeInteractable, out bool stayInHand))
-            {
-                if (!stayInHand)
-                {
-                    _activeInteractable = null;
-                }
-            }
-            
         }
         else if (Input.GetKeyDown(KeyCode.G) && _activeInteractable != null)
         {

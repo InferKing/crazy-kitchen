@@ -66,7 +66,8 @@ public class Interactable : BaseInteractable
     }
     public override bool TryCombine(Interactable interactable, out bool stayInHand)
     {
-        throw new System.NotImplementedException();
+        stayInHand = false;
+        return false;
     }
     public virtual GameObject GetGameObject()
     {
