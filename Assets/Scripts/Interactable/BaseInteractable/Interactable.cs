@@ -38,7 +38,6 @@ public class Interactable : BaseInteractable
     {
         throw new System.NotImplementedException();
     }
-
     public override void Interact()
     {
         throw new System.NotImplementedException();
