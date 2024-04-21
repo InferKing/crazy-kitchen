@@ -3,10 +3,6 @@ using UnityEngine;
 
 public class Knife : Interactable
 {
-    public override void Combine(Interactable interactable)
-    {
-        throw new System.NotImplementedException();
-    }
     public override bool TryCombine(Interactable interactable, out bool stayInHand)
     {
         stayInHand = false;
@@ -17,7 +13,7 @@ public class Knife : Interactable
         }
         if (interactable is Meat || interactable is SlicedMeat)
         {
-            GameObject new_mesh = interactable.GetGameObject();
+            //GameObject new_mesh = interactable.GetGameObject();
             return true;
         }
         return false;
@@ -33,15 +29,15 @@ public class Knife : Interactable
         base.OnExit();
         Bus.Invoke(new ShowItemTextSignal(string.Empty));
     }
-    public override void Drop()
-    {
-        transform.DORotate(IgnoreYRotation, 0.1f);
-        Rb.isKinematic = false;
-    }
+    //public override void Drop()
+    //{
+    //    transform.DORotate(IgnoreYRotation, 0.1f);
+    //    Rb.isKinematic = false;
+    //}
 
-    public override void Interact()
-    {
-        Rb.isKinematic = true;
-        Bus.Invoke(new ItemInteractedSignal(this));
-    }
+    //public override void Interact()
+    //{
+    //    Rb.isKinematic = true;
+    //    Bus.Invoke(new ItemInteractedSignal(this));
+    //}
 }

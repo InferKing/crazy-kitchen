@@ -46,20 +46,20 @@ public class ItemAction : MonoBehaviour, IInitializable
                     _activeInteractable = null;
                 }
             }
-            else if (!_interactable.CanGet)
-            {
-                _interactable.Interact();
-            }
-            else if (_activeInteractable == null)
-            {
-                _interactable.Interact();
-                _activeInteractable = _interactable;
-            }
+            //else if (!_interactable.CanGet)
+            //{
+            //    _interactable.Interact();
+            //}
+            //else if (_activeInteractable == null)
+            //{
+            //    _interactable.Interact();
+            //    _activeInteractable = _interactable;
+            //}
         }
         else if (Input.GetKeyDown(KeyCode.G) && _activeInteractable != null)
         {
             _bus.Invoke(new ItemDroppedSignal());
-            _activeInteractable.Drop();
+            //_activeInteractable.Drop();
             _activeInteractable = null;
 
             // при наведении на ингредиент и при этом нет ничего в руках - используется interact

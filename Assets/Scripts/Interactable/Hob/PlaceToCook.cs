@@ -57,8 +57,8 @@ public class PlaceToCook : Interactable, IObserver
     {
         _dish = dish;
         _dish.transform.SetParent(transform);
-        _dish.transform.eulerAngles = _dish.InitRotation;
-        _dish.Rb.isKinematic = true;
+        //_dish.transform.eulerAngles = _dish.InitRotation;
+        //_dish.Rb.isKinematic = true;
         _dish.transform.position = new Vector3(transform.position.x, transform.position.y + 0.03f, transform.position.z);
         _collider.enabled = false;
     }

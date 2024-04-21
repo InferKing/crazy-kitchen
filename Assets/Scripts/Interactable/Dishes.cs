@@ -22,17 +22,17 @@ public class Dishes : Interactable
     {
         _ingredients.Add(ingredient);
     }
-    public override void Drop()
-    {
-        transform.DORotate(IgnoreYRotation, 0.1f);
-        Rb.isKinematic = false;
-    }
+    //public override void Drop()
+    //{
+    //    transform.DORotate(IgnoreYRotation, 0.1f);
+    //    Rb.isKinematic = false;
+    //}
 
-    public override void Interact()
-    {
-        Rb.isKinematic = true;
-        Bus.Invoke(new ItemInteractedSignal(this));
-    }
+    //public override void Interact()
+    //{
+    //    Rb.isKinematic = true;
+    //    Bus.Invoke(new ItemInteractedSignal(this));
+    //}
     public virtual void PlaceIngredient(Ingredient placeToIngredient)
     {
         placeToIngredient.transform.SetParent(transform);

@@ -9,26 +9,26 @@ public class Meat : Ingredient
     {
         UpdateNewComponents(0);
     }
-    public override GameObject GetGameObject()
-    {
-        if (!CanSpawn)
-        {
-            return null;
-        }
-        _counter += 1;
-        GameObject obj = Instantiate(_data[Mathf.Clamp(_counter, 0, _data.Count - 1)].ObjectToSpawn);
-        obj.transform.position = transform.position;
-        if (_counter >= _data.Count)
-        {
-            Destroy(gameObject);
-        }
-        else
-        {
-            UpdateNewComponents(_counter);
-            return obj;
-        }
-        return null;
-    }
+    //public override GameObject GetGameObject()
+    //{
+    //    if (!CanSpawn)
+    //    {
+    //        return null;
+    //    }
+    //    _counter += 1;
+    //    GameObject obj = Instantiate(_data[Mathf.Clamp(_counter, 0, _data.Count - 1)].ObjectToSpawn);
+    //    obj.transform.position = transform.position;
+    //    if (_counter >= _data.Count)
+    //    {
+    //        Destroy(gameObject);
+    //    }
+    //    else
+    //    {
+    //        UpdateNewComponents(_counter);
+    //        return obj;
+    //    }
+    //    return null;
+    //}
     public virtual void UpdateNewComponents(int index)
     {
         BoxCollider boxCollider = GetComponent<BoxCollider>();

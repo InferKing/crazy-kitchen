@@ -5,15 +5,11 @@ using UnityEngine;
 
 public class Pan : Dishes
 {
-    public override void Drop()
-    {
-        transform.DORotate(IgnoreYZRotation, 0.1f);
-        Rb.isKinematic = false;
-    }
-    public override void Combine(Interactable interactable)
-    {
-        throw new System.NotImplementedException();
-    }
+    //public override void Drop()
+    //{
+    //    transform.DORotate(IgnoreYZRotation, 0.1f);
+    //    Rb.isKinematic = false;
+    //}
     public override bool TryCombine(Interactable interactable, out bool stayInHand)
     {
         stayInHand = false;

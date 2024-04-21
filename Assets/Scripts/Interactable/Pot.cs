@@ -5,10 +5,6 @@ using UnityEngine;
 
 public class Pot : Dishes
 {
-    public override void Combine(Interactable interactable)
-    {
-        throw new System.NotImplementedException();
-    }
     public override bool TryCombine(Interactable interactable, out bool stayInHand)
     {
         stayInHand = false;
@@ -16,7 +12,7 @@ public class Pot : Dishes
         if (interactable is Ingredient)
         {
             AddIngredient((Ingredient)interactable);
-            GameObject new_mesh = GetGameObject();
+            //GameObject new_mesh = GetGameObject();
             ServiceLocator.Instance.Get<EventBus>().Invoke(new DestroyMeDaddySignal(interactable.gameObject));
             return true;
         }

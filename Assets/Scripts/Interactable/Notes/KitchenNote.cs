@@ -35,14 +35,4 @@ public class KitchenNote : Interactable
         bus.Invoke(new ShowItemTextSignal(string.Empty));
 
     }
-
-    public override void Drop()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public override void Combine(Interactable interactable)
-    {
-        throw new System.NotImplementedException();
-    }
 }
