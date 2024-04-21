@@ -1,4 +1,4 @@
-public class SlicedMeat : Meat
+public class SlicedMeat : Sliceable
 {
     
 }

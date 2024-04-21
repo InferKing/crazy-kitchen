@@ -2,8 +2,9 @@ using UnityEngine;
 
 public class ItemAction : MonoBehaviour, IInitializable
 {
-    private bool _canInteract = true;
     private Interactable _interactable, _activeInteractable;
+    // _interactable - на кого навелись
+    // _activeInteractable - что в руках
     private EventBus _bus;
     public void Initialize()
     {
@@ -15,7 +16,6 @@ public class ItemAction : MonoBehaviour, IInitializable
     }
     private void OnFindInteractable(FindInteractableSignal signal)
     {
-        if (!_canInteract) return;
         if (_interactable != signal.data) 
         { 
             if (_interactable != null)
@@ -28,7 +28,6 @@ public class ItemAction : MonoBehaviour, IInitializable
     }
     private void OnNoInteractable(NoInteractableSignal signal)
     {
-        if (!_canInteract) return;
         if (_interactable != null)
         {
             _interactable.OnExit();
@@ -37,7 +36,7 @@ public class ItemAction : MonoBehaviour, IInitializable
     }
     private void OnInputDown(InputDownSignal signal)
     {
-        if (Input.GetKeyDown(KeyCode.E) && _canInteract && _interactable != null)
+        if (_activeInteractable != null && _interactable != null && Input.GetKeyDown(KeyCode.E))
         {
             if (_interactable.TryCombine(_activeInteractable, out bool stayInHand))
             {
@@ -46,26 +45,40 @@ public class ItemAction : MonoBehaviour, IInitializable
                     _activeInteractable = null;
                 }
             }
-            //else if (!_interactable.CanGet)
-            //{
-            //    _interactable.Interact();
-            //}
-            //else if (_activeInteractable == null)
-            //{
-            //    _interactable.Interact();
-            //    _activeInteractable = _interactable;
-            //}
         }
-        else if (Input.GetKeyDown(KeyCode.G) && _activeInteractable != null)
+        else if (_interactable != null && Input.GetKeyDown(KeyCode.E) && _activeInteractable == null)
         {
-            _bus.Invoke(new ItemDroppedSignal());
-            //_activeInteractable.Drop();
-            _activeInteractable = null;
+            _interactable.Interact();
+            _activeInteractable = _interactable;
+        }
+        else if (_activeInteractable != null)
+        {
+            switch (_activeInteractable)
+            {
+                case Meat:
+                    Debug.Log("Meat");
+                    break;
+                case SlicedMeat: 
+                    Debug.Log("SlicedMeat");
+                    break;
+                case ChoppedMeat:
+                    Debug.Log("ChoppedMeat");
+                    break;
+            }
+            // Я хотел сделать красиво, но пока не понял как эту хуйню сделать нормально
+            // Поэтому ловите ебучий switch вместо "гениального" делегата
+            //Interactable act = _activeInteractable;
+            //foreach (var item in Input.inputString)
+            //{
+            //    if (KeyboardConstants.KeyCodeMatch.TryGetValue(item, out KeyCode value))
+            //    {
+            //        if (act.ActionKeys.TryGetValue(value, out System.Action action))
+            //        {
+            //            action();
+            //        }
 
-            // при наведении на ингредиент и при этом нет ничего в руках - используется interact
-            // при наведении на ингредиент и при этом есть что-то в руках - используется combine наведенного предмета
-            // при нажатии G активный предмет просто бросается
-            // активным предметом считается тот, что можно взять в руки, а не просто взаимодействовать
+            //    }
+            //}
         }
     }
     private void OnLockInteract(LockInteractSignal signal)

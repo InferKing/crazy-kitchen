@@ -3,11 +3,6 @@ using System.Collections.Generic;
 
 public class Ingredient : Grabbable
 {
-    public override void Interact()
-    {
-        Rb.isKinematic = true;
-        Bus.Invoke(new ItemInteractedSignal(this));
-    }
     public override void OnEnter()
     {
         base.OnEnter();

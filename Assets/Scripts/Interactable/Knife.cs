@@ -11,9 +11,9 @@ public class Knife : Interactable
         {
             return false;
         }
-        if (interactable is Meat || interactable is SlicedMeat)
+        if (interactable is Sliceable item)
         {
-            //GameObject new_mesh = interactable.GetGameObject();
+            item.Slice();
             return true;
         }
         return false;
@@ -29,15 +29,4 @@ public class Knife : Interactable
         base.OnExit();
         Bus.Invoke(new ShowItemTextSignal(string.Empty));
     }
-    //public override void Drop()
-    //{
-    //    transform.DORotate(IgnoreYRotation, 0.1f);
-    //    Rb.isKinematic = false;
-    //}
-
-    //public override void Interact()
-    //{
-    //    Rb.isKinematic = true;
-    //    Bus.Invoke(new ItemInteractedSignal(this));
-    //}
 }

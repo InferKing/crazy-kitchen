@@ -1,6 +1,4 @@
-using UnityEngine;
-
-public class ChoppedMeat : Meat
+public class ChoppedMeat : Cookable
 {
     
 }

@@ -15,22 +15,18 @@ public class InteractableHandler : MonoBehaviour
     }
     private void OnItemInteracted(ItemInteractedSignal signal)
     {
-        //if (signal.data.CanGet)
-        //{
-        //    signal.data.transform.SetParent(_placeToInteractItem.transform, true);
-        //    signal.data.transform.position = _placeToInteractItem.transform.position;
-        //    signal.data.Rb.gameObject.transform.position = signal.data.transform.position;
-        //    _item = signal.data.transform;
-        //    Quaternion q = new();
-        //    q.eulerAngles = signal.data.PlaceRoatation;
-        //    signal.data.transform.localRotation = q;
-        //    q.eulerAngles = Vector3.zero;
-        //    signal.data.UpdateChildRotation(q);
-        //}
-        //else
-        //{
-
-        //}
+        if (signal.data is Grabbable item)
+        {
+            item.transform.SetParent(_placeToInteractItem.transform, true);
+            item.transform.position = _placeToInteractItem.transform.position;
+            _item = item.transform;
+            Quaternion q = new()
+            {
+                eulerAngles = item.PlaceRoatation
+            };
+            signal.data.transform.localRotation = q;
+            q.eulerAngles = Vector3.zero;
+        }
     }
     private void OnItemDropped(ItemDroppedSignal signal)
     {
