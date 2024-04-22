@@ -13,6 +13,7 @@ public class ItemAction : MonoBehaviour, IInitializable
         _bus.Subscribe<InputDownSignal>(OnInputDown);
         _bus.Subscribe<NoInteractableSignal>(OnNoInteractable);
         _bus.Subscribe<LockInteractSignal>(OnLockInteract);
+        _bus.Subscribe<ItemDroppedSignal>(OnItemDropped);
     }
     private void OnFindInteractable(FindInteractableSignal signal)
     {
@@ -53,37 +54,29 @@ public class ItemAction : MonoBehaviour, IInitializable
         }
         else if (_activeInteractable != null)
         {
-            switch (_activeInteractable)
+            // Никакого switch, господа
+            // Let's celebrate and suck some dicks! Cheers!
+            Interactable act = _activeInteractable;
+            foreach (var item in Input.inputString)
             {
-                case Meat:
-                    Debug.Log("Meat");
-                    break;
-                case SlicedMeat: 
-                    Debug.Log("SlicedMeat");
-                    break;
-                case ChoppedMeat:
-                    Debug.Log("ChoppedMeat");
-                    break;
-            }
-            // Я хотел сделать красиво, но пока не понял как эту хуйню сделать нормально
-            // Поэтому ловите ебучий switch вместо "гениального" делегата
-            //Interactable act = _activeInteractable;
-            //foreach (var item in Input.inputString)
-            //{
-            //    if (KeyboardConstants.KeyCodeMatch.TryGetValue(item, out KeyCode value))
-            //    {
-            //        if (act.ActionKeys.TryGetValue(value, out System.Action action))
-            //        {
-            //            action();
-            //        }
+                if (KeyboardConstants.KeyCodeMatch.TryGetValue(item, out KeyCode value))
+                {
+                    if (act.ActionKeys.TryGetValue(value, out System.Action action))
+                    {
+                        action();
+                    }
 
-            //    }
-            //}
+                }
+            }
         }
     }
     private void OnLockInteract(LockInteractSignal signal)
     {
         //_canInteract = !signal.data;
+    }
+    private void OnItemDropped(ItemDroppedSignal signal)
+    {
+        _activeInteractable = null;
     }
     private void OnDisable()
     {
@@ -92,6 +85,6 @@ public class ItemAction : MonoBehaviour, IInitializable
         _bus.Unsubscribe<InputDownSignal>(OnInputDown);
         _bus.Unsubscribe<NoInteractableSignal>(OnNoInteractable);
         _bus.Unsubscribe<LockInteractSignal>(OnLockInteract);
-
+        _bus.Unsubscribe<ItemDroppedSignal>(OnItemDropped);
     }
 }

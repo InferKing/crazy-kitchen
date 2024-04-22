@@ -21,7 +21,6 @@ public class Grabbable : Interactable
         _actionKeys = new Dictionary<KeyCode, Action>()
         {
             { KeyCode.G, () => Drop() },
-            { KeyCode.E, () => Interact() }
         };
     }
     public override void Interact()
