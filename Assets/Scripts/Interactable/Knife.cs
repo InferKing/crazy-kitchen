@@ -1,19 +1,16 @@
 using DG.Tweening;
 using UnityEngine;
 
-public class Knife : Interactable
+public class Knife : Grabbable
 {
     public override bool TryCombine(Interactable interactable, out bool stayInHand)
     {
         stayInHand = false;
         if (interactable == null) return false;
-        if (interactable is ChoppedMeat)
-        {
-            return false;
-        }
         if (interactable is Sliceable item)
         {
             item.Slice();
+            stayInHand = true;
             return true;
         }
         return false;

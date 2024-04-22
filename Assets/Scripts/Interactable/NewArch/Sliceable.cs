@@ -20,4 +20,10 @@ public class Sliceable : Cookable
         }
         Destroy(gameObject);
     }
+    public override bool TryCombine(Interactable interactable, out bool stayInHand)
+    {
+        stayInHand = false;
+        if (interactable == null) return false;
+        return false;
+    }
 }

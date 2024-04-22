@@ -1,6 +1,7 @@
 using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Dishes : Grabbable
@@ -35,12 +36,22 @@ public class Dishes : Grabbable
         //item.GetComponent<Collider>().enabled = false;
         item.transform.rotation = Quaternion.Euler(item.InitRotation);
     }
-    public void DropAllIngredients()
+    public virtual void DropIngredient()
+    {
+        if (_ingredients.Count > 0)
+        {
+            Ingredient value = _ingredients[_ingredients.Count - 1];
+            value.transform.parent = null;
+            value.Rb.isKinematic = false;
+            _ingredients.RemoveAt(_ingredients.Count - 1);
+        }
+    }
+    public virtual void DropAllIngredients()
     {
         _ingredients.ForEach(ingredient => 
         {
             ingredient.transform.parent = null;
-            ingredient.Rb.isKinematic = true;
+            ingredient.Rb.isKinematic = false;
         });
     }
 }

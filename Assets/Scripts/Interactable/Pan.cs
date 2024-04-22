@@ -5,21 +5,15 @@ using UnityEngine;
 
 public class Pan : Dishes
 {
-    //public override void Drop()
-    //{
-    //    transform.DORotate(IgnoreYZRotation, 0.1f);
-    //    Rb.isKinematic = false;
-    //}
     public override bool TryCombine(Interactable interactable, out bool stayInHand)
     {
         stayInHand = false;
         if (interactable == null) return false;
-        if (interactable is Ingredient)
+        if (interactable is Ingredient ingredient)
         {
-            AddIngredient((Ingredient)interactable);
-            PlaceIngredient((Ingredient)interactable);
-            // GameObject new_mesh = GetGameObject();
-            // ServiceLocator.Instance.Get<EventBus>().Invoke(new DestroyMeDaddySignal(interactable.gameObject));
+            AddIngredient(ingredient);
+            PlaceIngredient(ingredient);
+            stayInHand = true;
             return true;
         }
         return false;

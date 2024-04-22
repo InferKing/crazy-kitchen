@@ -39,7 +39,7 @@ public class ItemAction : MonoBehaviour, IInitializable
     {
         if (_activeInteractable != null && _interactable != null && Input.GetKeyDown(KeyCode.E))
         {
-            if (_interactable.TryCombine(_activeInteractable, out bool stayInHand))
+            if (_activeInteractable.TryCombine(_interactable, out bool stayInHand))
             {
                 if (!stayInHand)
                 {
