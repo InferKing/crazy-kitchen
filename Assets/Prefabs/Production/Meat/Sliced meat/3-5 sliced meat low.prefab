@@ -76,7 +76,7 @@ PrefabInstance:
       addedObject: {fileID: 6807831311307622073}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 434ba4670c579ab44a3d36f686c16e21, type: 3}
       insertIndex: -1
-      addedObject: {fileID: -2076361286094428200}
+      addedObject: {fileID: 3852643538429792992}
   m_SourcePrefab: {fileID: 100100000, guid: 434ba4670c579ab44a3d36f686c16e21, type: 3}
 --- !u!1 &7647391915441568690 stripped
 GameObject:
@@ -131,7 +131,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
---- !u!114 &-2076361286094428200
+--- !u!114 &3852643538429792992
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -143,8 +143,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43969d9db5a3ba141a82f55e16720bd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _canGet: 1
   _initRotation: {x: 0, y: 0, z: 0}
   _placeRotation: {x: 0, y: 0, z: 0}
-  _data:
-  - {fileID: 11400000, guid: 7bd917780ef67044ab55b1f77445a7bb, type: 2}
+  _rangeCookStates:
+  - {fileID: 11400000, guid: cd6d72a337f2f074280202ad63831719, type: 2}
+  - {fileID: 11400000, guid: 043df46f12c2616438e8c6158677c60f, type: 2}
+  - {fileID: 11400000, guid: f395d5634129dec448588f5407411374, type: 2}
+  - {fileID: 11400000, guid: f4dcf04e364a78a4bbf9b37a8a7e99a3, type: 2}
+  - {fileID: 11400000, guid: b13902131ad305b48896941bf2c022e8, type: 2}
+  - {fileID: 11400000, guid: 437b211e9cadce84e81884c4857c62d2, type: 2}
+  - {fileID: 11400000, guid: dd500c4f9695b3d48b748184e087b479, type: 2}
+  - {fileID: 11400000, guid: dd7c74d0f2d219848a4b9d47a8a19b59, type: 2}
+  - {fileID: 11400000, guid: c647b006fa52d5c4aa760906a683a3e1, type: 2}
+  _itemsToSpawn:
+  - {fileID: 4466151480065329971, guid: 069e6a846924bae418b37a4810377c6c, type: 3}

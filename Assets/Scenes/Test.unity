@@ -406,66 +406,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -3.938
       objectReference: {fileID: 0}
-    - target: {fileID: 9073410112486687273, guid: c1c12c3cc046bb346b867589a560f5b3, type: 3}
-      propertyPath: _itemsToSpawn.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 9073410112486687273, guid: c1c12c3cc046bb346b867589a560f5b3, type: 3}
-      propertyPath: _itemsToSpawn.Array.data[0]
-      value: 
-      objectReference: {fileID: 6843467627685246218, guid: 3866ee5a8fa80ed4c97413cf303bc6ee, type: 3}
-    - target: {fileID: 9073410112486687273, guid: c1c12c3cc046bb346b867589a560f5b3, type: 3}
-      propertyPath: _itemsToSpawn.Array.data[1]
-      value: 
-      objectReference: {fileID: 1007162294606192599, guid: 71b0a70891c427b4d8aeb56338f31765, type: 3}
-    - target: {fileID: 9073410112486687273, guid: c1c12c3cc046bb346b867589a560f5b3, type: 3}
-      propertyPath: _itemsToSpawn.Array.data[2]
-      value: 
-      objectReference: {fileID: 7647391915441568690, guid: 9ce2a6416ae8e5e4dadaf66ca56aef50, type: 3}
-    - target: {fileID: 9073410112486687273, guid: c1c12c3cc046bb346b867589a560f5b3, type: 3}
-      propertyPath: _itemsToSpawn.Array.data[3]
-      value: 
-      objectReference: {fileID: 2009005992248703598, guid: 946d676e561d31d41b15341406bbaf26, type: 3}
-    - target: {fileID: 9073410112486687273, guid: c1c12c3cc046bb346b867589a560f5b3, type: 3}
-      propertyPath: _rangeCookStates.Array.size
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 9073410112486687273, guid: c1c12c3cc046bb346b867589a560f5b3, type: 3}
-      propertyPath: _rangeCookStates.Array.data[0]
-      value: 
-      objectReference: {fileID: 11400000, guid: cd6d72a337f2f074280202ad63831719, type: 2}
-    - target: {fileID: 9073410112486687273, guid: c1c12c3cc046bb346b867589a560f5b3, type: 3}
-      propertyPath: _rangeCookStates.Array.data[1]
-      value: 
-      objectReference: {fileID: 11400000, guid: 043df46f12c2616438e8c6158677c60f, type: 2}
-    - target: {fileID: 9073410112486687273, guid: c1c12c3cc046bb346b867589a560f5b3, type: 3}
-      propertyPath: _rangeCookStates.Array.data[2]
-      value: 
-      objectReference: {fileID: 11400000, guid: f395d5634129dec448588f5407411374, type: 2}
-    - target: {fileID: 9073410112486687273, guid: c1c12c3cc046bb346b867589a560f5b3, type: 3}
-      propertyPath: _rangeCookStates.Array.data[3]
-      value: 
-      objectReference: {fileID: 11400000, guid: f4dcf04e364a78a4bbf9b37a8a7e99a3, type: 2}
-    - target: {fileID: 9073410112486687273, guid: c1c12c3cc046bb346b867589a560f5b3, type: 3}
-      propertyPath: _rangeCookStates.Array.data[4]
-      value: 
-      objectReference: {fileID: 11400000, guid: b13902131ad305b48896941bf2c022e8, type: 2}
-    - target: {fileID: 9073410112486687273, guid: c1c12c3cc046bb346b867589a560f5b3, type: 3}
-      propertyPath: _rangeCookStates.Array.data[5]
-      value: 
-      objectReference: {fileID: 11400000, guid: 437b211e9cadce84e81884c4857c62d2, type: 2}
-    - target: {fileID: 9073410112486687273, guid: c1c12c3cc046bb346b867589a560f5b3, type: 3}
-      propertyPath: _rangeCookStates.Array.data[6]
-      value: 
-      objectReference: {fileID: 11400000, guid: dd500c4f9695b3d48b748184e087b479, type: 2}
-    - target: {fileID: 9073410112486687273, guid: c1c12c3cc046bb346b867589a560f5b3, type: 3}
-      propertyPath: _rangeCookStates.Array.data[7]
-      value: 
-      objectReference: {fileID: 11400000, guid: dd7c74d0f2d219848a4b9d47a8a19b59, type: 2}
-    - target: {fileID: 9073410112486687273, guid: c1c12c3cc046bb346b867589a560f5b3, type: 3}
-      propertyPath: _rangeCookStates.Array.data[8]
-      value: 
-      objectReference: {fileID: 11400000, guid: c647b006fa52d5c4aa760906a683a3e1, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

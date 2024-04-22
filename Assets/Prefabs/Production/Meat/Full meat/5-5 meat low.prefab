@@ -10,19 +10,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: d7227cee820c7ff49a23189df85e41dd, type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d7227cee820c7ff49a23189df85e41dd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 12.040746
+      value: 3.447331
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d7227cee820c7ff49a23189df85e41dd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.2538518
+      value: 1.14
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d7227cee820c7ff49a23189df85e41dd, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 11.244541
+      value: 0.036
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d7227cee820c7ff49a23189df85e41dd, type: 3}
       propertyPath: m_LocalRotation.w
@@ -116,16 +116,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34b1e3b550936c3419258ff6112f69ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _canGet: 1
   _initRotation: {x: 0, y: 0, z: 0}
   _placeRotation: {x: 0, y: 0, z: 0}
-  _data:
-  - {fileID: 11400000, guid: b83cc9b1092f1d348a84c653f17fc3c4, type: 2}
-  - {fileID: 11400000, guid: e41f47108a4bf934496c70da7c677e84, type: 2}
-  - {fileID: 11400000, guid: 370c6e990d069f744828237a35a54388, type: 2}
-  - {fileID: 11400000, guid: 697ade73138e1ba4aa221c6d3dd38ee3, type: 2}
-  - {fileID: 11400000, guid: e9dea3e4900017b4383eae21cb2aeb8b, type: 2}
-  _objectToInstantiate: {fileID: 0}
+  _rangeCookStates:
+  - {fileID: 11400000, guid: cd6d72a337f2f074280202ad63831719, type: 2}
+  - {fileID: 11400000, guid: 043df46f12c2616438e8c6158677c60f, type: 2}
+  - {fileID: 11400000, guid: f395d5634129dec448588f5407411374, type: 2}
+  - {fileID: 11400000, guid: f4dcf04e364a78a4bbf9b37a8a7e99a3, type: 2}
+  - {fileID: 11400000, guid: b13902131ad305b48896941bf2c022e8, type: 2}
+  - {fileID: 11400000, guid: 437b211e9cadce84e81884c4857c62d2, type: 2}
+  - {fileID: 11400000, guid: dd500c4f9695b3d48b748184e087b479, type: 2}
+  - {fileID: 11400000, guid: dd7c74d0f2d219848a4b9d47a8a19b59, type: 2}
+  - {fileID: 11400000, guid: c647b006fa52d5c4aa760906a683a3e1, type: 2}
+  _itemsToSpawn:
+  - {fileID: 6843467627685246218, guid: 3866ee5a8fa80ed4c97413cf303bc6ee, type: 3}
+  - {fileID: 1007162294606192599, guid: 71b0a70891c427b4d8aeb56338f31765, type: 3}
+  - {fileID: 7647391915441568690, guid: 9ce2a6416ae8e5e4dadaf66ca56aef50, type: 3}
+  - {fileID: 2009005992248703598, guid: 946d676e561d31d41b15341406bbaf26, type: 3}
 --- !u!54 &-7135071164329826964
 Rigidbody:
   m_ObjectHideFlags: 0
