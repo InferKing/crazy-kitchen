@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 public class Dishes : Grabbable
 {
@@ -13,6 +14,7 @@ public class Dishes : Grabbable
     {
         base.Start();
         _actionKeys.Add(KeyCode.F, () => DropAllIngredients());
+        _actionKeys.Add(KeyCode.Mouse1, () => DropIngredient());
     }
     public override void OnEnter()
     {
@@ -33,16 +35,17 @@ public class Dishes : Grabbable
         item.transform.SetParent(transform);
         item.transform.localPosition = _placeToIngredient.transform.localPosition;
         item.Rb.isKinematic = true;
-        //item.GetComponent<Collider>().enabled = false;
+        item.GetComponent<Collider>().enabled = false;
         item.transform.rotation = Quaternion.Euler(item.InitRotation);
     }
     public virtual void DropIngredient()
     {
         if (_ingredients.Count > 0)
         {
-            Ingredient value = _ingredients[_ingredients.Count - 1];
+            Ingredient value = _ingredients[^1];
             value.transform.parent = null;
             value.Rb.isKinematic = false;
+            value.GetComponent<Collider>().enabled = true;
             _ingredients.RemoveAt(_ingredients.Count - 1);
         }
     }
@@ -52,6 +55,7 @@ public class Dishes : Grabbable
         {
             ingredient.transform.parent = null;
             ingredient.Rb.isKinematic = false;
+            ingredient.GetComponent<Collider>().enabled = true;
         });
     }
 }
