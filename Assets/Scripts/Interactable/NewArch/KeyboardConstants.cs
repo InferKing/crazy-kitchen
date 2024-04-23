@@ -37,7 +37,7 @@ public class KeyboardConstants
     {
         { KeyCode.G, Constants.keyGInput },
         { KeyCode.F, Constants.keyFInput },
-        { KeyCode.Mouse1, Constants.keyMouse1Input },
+        { KeyCode.T, Constants.keyTInput },
         { KeyCode.E, Constants.keyEInput },
     };
 }

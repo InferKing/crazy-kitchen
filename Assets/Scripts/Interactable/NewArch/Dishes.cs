@@ -10,7 +10,7 @@ public class Dishes : Grabbable
     {
         base.Start();
         _actionKeys.Add(KeyCode.F, () => DropAllIngredients());
-        _actionKeys.Add(KeyCode.Mouse1, () => DropIngredient());
+        _actionKeys.Add(KeyCode.T, () => DropIngredient());
     }
     public override void OnEnter()
     {
@@ -32,13 +32,13 @@ public class Dishes : Grabbable
         item.transform.localPosition = _placeToIngredient.transform.localPosition;
         item.Rb.isKinematic = true;
         item.GetComponent<Collider>().enabled = false;
-        item.transform.rotation = Quaternion.Euler(item.InitRotation);
+        item.transform.localRotation = Quaternion.Euler(0, 0, item.transform.rotation.eulerAngles.z);
     }
     public virtual void DropIngredient()
     {
         if (_ingredients.Count > 0)
         {
-            Ingredient value = _ingredients[^1];
+            Ingredient value = _ingredients[_ingredients.Count - 1];
             value.transform.parent = null;
             value.Rb.isKinematic = false;
             value.GetComponent<Collider>().enabled = true;

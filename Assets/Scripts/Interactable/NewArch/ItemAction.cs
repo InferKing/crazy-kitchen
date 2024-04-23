@@ -46,6 +46,10 @@ public class ItemAction : MonoBehaviour, IInitializable
                     _activeInteractable = null;
                 }
             }
+            else if (_interactable is not Grabbable)
+            {
+                _interactable.Interact();
+            }
         }
         else if (_interactable != null && _interactable is Grabbable && Input.GetKeyDown(KeyCode.E) && _activeInteractable == null)
         {
@@ -70,6 +74,10 @@ public class ItemAction : MonoBehaviour, IInitializable
 
                 }
             }
+        }
+        else if (_interactable != null && Input.GetKeyDown(KeyCode.E))
+        {
+            _interactable.Interact();
         }
     }
     private void OnLockInteract(LockInteractSignal signal)

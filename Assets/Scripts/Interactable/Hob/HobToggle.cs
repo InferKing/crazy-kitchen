@@ -61,10 +61,6 @@ public class HobToggle : Interactable, IObservable
         base.OnExit();
         Bus.Invoke(new ShowItemTextSignal(string.Empty));
     }
-    //public override void Drop()
-    //{
-    //    // no drop?
-    //}
     public override void Interact()
     {
         _fsm.OnLogic();

@@ -3,6 +3,11 @@ using UnityEngine;
 
 public class Knife : Grabbable
 {
+    protected override void Start()
+    {
+        base.Start();
+        _actionKeys.Add(KeyCode.E, () => { }); // empty because hint should be displayed
+    }
     public override bool TryCombine(Interactable interactable, out bool stayInHand)
     {
         stayInHand = false;
@@ -15,6 +20,7 @@ public class Knife : Grabbable
         }
         return false;
     }
+
     public override void OnEnter()
     {
         base.OnEnter();

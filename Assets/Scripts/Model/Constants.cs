@@ -6,6 +6,6 @@ public class Constants
     public const string keyPressEDishes = "Нажмите Е чтобы взять посуду";
     public const string keyEInput = "Взаимодействовать";
     public const string keyFInput = "Выбросить все ингредиенты";
-    public const string keyMouse1Input = "Выбросить один ингредиент";
+    public const string keyTInput = "Выбросить один ингредиент";
     public const string keyGInput = "Выбросить предмет";
 }

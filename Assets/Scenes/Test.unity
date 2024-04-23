@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44399035, g: 0.4933843, b: 0.5728494, a: 1}
+  m_IndirectSpecularColor: {r: 0.44399068, g: 0.49338502, b: 0.5728498, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -159,8 +159,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -350, y: 150}
-  m_SizeDelta: {x: 720, y: 300}
+  m_AnchoredPosition: {x: -350, y: 200}
+  m_SizeDelta: {x: 720, y: 380}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &196928307
 MonoBehaviour:
@@ -179,7 +179,7 @@ MonoBehaviour:
     m_Right: 0
     m_Top: 0
     m_Bottom: 0
-  m_ChildAlignment: 0
+  m_ChildAlignment: 3
   m_Spacing: 10
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 0
@@ -565,7 +565,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6565794120091782984, guid: 553f0dd57a78ca1458076f64faa25ae8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 796436459}
   m_SourcePrefab: {fileID: 100100000, guid: 553f0dd57a78ca1458076f64faa25ae8, type: 3}
 --- !u!1 &796436455 stripped
 GameObject:
@@ -577,6 +580,24 @@ Camera:
   m_CorrespondingSourceObject: {fileID: 8756422385881290568, guid: 553f0dd57a78ca1458076f64faa25ae8, type: 3}
   m_PrefabInstance: {fileID: 796436454}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &796436459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 796436455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0338c7e8f7eb8e45abe17ef0cb487ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  force: {x: 15, y: 15}
+  multiplier: 11
+  inverseX: 0
+  inverseY: 0
+  minMaxX: {x: -10, y: 10}
+  minMaxY: {x: -10, y: 10}
 --- !u!114 &811453460 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 199927421375653793, guid: 553f0dd57a78ca1458076f64faa25ae8, type: 3}
@@ -1160,7 +1181,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6929719271800144371, guid: 29fcbacf8c5c2d14eb4cd2d69dd1d2fa, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
