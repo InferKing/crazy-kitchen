@@ -47,10 +47,12 @@ public class ItemAction : MonoBehaviour, IInitializable
                 }
             }
         }
-        else if (_interactable != null && Input.GetKeyDown(KeyCode.E) && _activeInteractable == null)
+        else if (_interactable != null && _interactable is Grabbable && Input.GetKeyDown(KeyCode.E) && _activeInteractable == null)
         {
             _interactable.Interact();
             _activeInteractable = _interactable;
+            _bus.Invoke(new ShowPossibleInputSignal(_activeInteractable.ActionKeys));
+            _bus.Invoke(new GetItemInHandSignal(_activeInteractable));
         }
         else if (_activeInteractable != null)
         {
@@ -76,6 +78,7 @@ public class ItemAction : MonoBehaviour, IInitializable
     }
     private void OnItemDropped(ItemDroppedSignal signal)
     {
+        _bus.Invoke(new GetItemOutOfHandSignal(_activeInteractable));
         _activeInteractable = null;
     }
     private void OnDisable()

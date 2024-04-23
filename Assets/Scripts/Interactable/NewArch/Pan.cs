@@ -1,18 +1,13 @@
-using DG.Tweening;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 public class Pan : Dishes
 {
     public override bool TryCombine(Interactable interactable, out bool stayInHand)
     {
         stayInHand = false;
         if (interactable == null) return false;
-        if (interactable is Ingredient ingredient)
+        if (interactable is Cookable cookable)
         {
-            AddIngredient(ingredient);
-            PlaceIngredient(ingredient);
+            AddIngredient(cookable);
+            PlaceIngredient(cookable);
             stayInHand = true;
             return true;
         }

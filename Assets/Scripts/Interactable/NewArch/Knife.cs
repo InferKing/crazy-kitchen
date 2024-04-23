@@ -9,7 +9,7 @@ public class Knife : Grabbable
         if (interactable == null) return false;
         if (interactable is Sliceable item)
         {
-            item.Slice();
+            item.ToSlice();
             stayInHand = true;
             return true;
         }

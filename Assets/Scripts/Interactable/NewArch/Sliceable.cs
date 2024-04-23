@@ -9,9 +9,8 @@ public class Sliceable : Cookable
     protected override void Start()
     {
         base.Start();
-        _actionKeys.Add(KeyCode.E, () => Slice());
     }
-    public virtual void Slice()
+    public virtual void ToSlice()
     {
         foreach (var item in ItemsToSpawn)
         {

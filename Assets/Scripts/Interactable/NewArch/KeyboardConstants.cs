@@ -33,4 +33,11 @@ public class KeyboardConstants
         { 'y', KeyCode.Y },
         { 'z', KeyCode.Z },
     };
+    public static IReadOnlyDictionary<KeyCode, string> KeysDescription = new Dictionary<KeyCode, string>() 
+    {
+        { KeyCode.G, Constants.keyGInput },
+        { KeyCode.F, Constants.keyFInput },
+        { KeyCode.Mouse1, Constants.keyMouse1Input },
+        { KeyCode.E, Constants.keyEInput },
+    };
 }
