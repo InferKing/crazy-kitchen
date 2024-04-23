@@ -18,6 +18,12 @@ public class Pan : Dishes
             stayInHand = true;
             return true;
         }
+        else if (interactable is PlaceToCook place)
+        {
+            if (!place.IsEmpty) return false;
+            place.ToStove(this);
+            return true;
+        }
         return false;
     }
 }
