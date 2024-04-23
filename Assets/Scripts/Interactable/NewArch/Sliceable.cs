@@ -1,4 +1,4 @@
-using System.Collections;
+using DG.Tweening;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -16,6 +16,9 @@ public class Sliceable : Cookable
         {
             GameObject obj = Instantiate(item);
             obj.transform.position = transform.position;
+            var temp = obj.GetComponent<Cookable>();
+            temp.TotalCookTime = TotalCookTime;
+            temp.UpdateStateWhenRange();
         }
         Destroy(gameObject);
     }

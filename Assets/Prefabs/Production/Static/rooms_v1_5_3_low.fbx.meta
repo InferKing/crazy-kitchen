@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ec37e4cf1b53ee14da3dd6114dcfebc8
+guid: 77b4fe42546485b40a4360637829dc0f
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,23 +7,18 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: 1
-    second: {fileID: 2100000, guid: 8aaedc6dc114b4b408e98b375cd54e6f, type: 2}
+      name: floor.001
+    second: {fileID: 2100000, guid: cfc0872020f8aac4dbd0ae956dec2259, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: 4
-    second: {fileID: 2100000, guid: 7e17a0a607183e6449ad3f7a8937e698, type: 2}
+      name: glass
+    second: {fileID: 2100000, guid: 80617d923568f614c94e0a0755f56be1, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: 6
-    second: {fileID: 2100000, guid: d12f1c58ed5a0d64f958af5c493d7ee9, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Material
-    second: {fileID: 2100000, guid: 0550673755efa41459021c4f6c9243ad, type: 2}
+      name: test_v6.001
+    second: {fileID: 2100000, guid: 87d29fc7d112e764aa2ef5ec94acace8, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -52,7 +47,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     extraUserProperties: []
     clipAnimations: []
-    isReadable: 1
+    isReadable: 0
   meshes:
     lODScreenPercentages: []
     globalScale: 1

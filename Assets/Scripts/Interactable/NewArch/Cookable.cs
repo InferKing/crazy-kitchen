@@ -10,6 +10,7 @@ public class Cookable : Ingredient
     private int _totalCookTime = 0;
     private CookRange _activeCookRange;
     public string IngredientCookState { get { return _activeCookRange.StateName; } }
+    public int TotalCookTime { get { return _totalCookTime; } set { _totalCookTime = value; } }
     public void Cook(int cookDeltaTime)
     {
         if (cookDeltaTime <= 0)
@@ -20,6 +21,10 @@ public class Cookable : Ingredient
             return;
         }
         _totalCookTime += cookDeltaTime;
+        UpdateStateWhenRange();
+    }
+    public void UpdateStateWhenRange()
+    {
         CookRange range = _rangeCookStates.FirstOrDefault(range => range.IsInRange(_totalCookTime));
         if (range != null)
         {

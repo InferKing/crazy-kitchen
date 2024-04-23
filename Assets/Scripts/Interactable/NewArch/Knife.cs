@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class Knife : Grabbable
 {
+    private Sequence _seq;
     protected override void Start()
     {
         base.Start();
@@ -14,7 +15,11 @@ public class Knife : Grabbable
         if (interactable == null) return false;
         if (interactable is Sliceable item)
         {
-            item.ToSlice();
+            // Не дать игроку двигаться во время анимации
+            // item.ToSlice();
+            // Починить (отделить от родителя, а также поставить kw)
+            _seq.Append(transform.DOMove(item.transform.position, 0.2f));
+            _seq.Append(transform.DORotate(new Vector3(0, 360, 0), 1f).OnComplete(() => { transform.localPosition = Vector3.zero; item.ToSlice(); }));
             stayInHand = true;
             return true;
         }

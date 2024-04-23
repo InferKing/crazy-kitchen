@@ -55,7 +55,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 854697e1cc519bb4394850c6afee80c7, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: cd2924baf65fe844d904ed27331f520a, type: 2}
+      objectReference: {fileID: 2100000, guid: eeb4511ba3abaff439166a89a8d88b56, type: 2}
     - target: {fileID: 919132149155446097, guid: 854697e1cc519bb4394850c6afee80c7, type: 3}
       propertyPath: m_Name
       value: 4-5 sliced meat low

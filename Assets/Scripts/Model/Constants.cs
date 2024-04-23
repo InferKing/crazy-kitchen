@@ -1,11 +1,11 @@
 public class Constants
 {
-    public const string keyPressEKnife = "Нажмите Е чтобы взять нож";
-    public const string keyPressENote = "Нажмите E чтобы взять заказ";
-    public const string keyPressEItem = "Нажмите E чтобы использовать";
-    public const string keyPressEDishes = "Нажмите Е чтобы взять посуду";
-    public const string keyEInput = "Взаимодействовать";
-    public const string keyFInput = "Выбросить все ингредиенты";
-    public const string keyTInput = "Выбросить один ингредиент";
-    public const string keyGInput = "Выбросить предмет";
+    public const string keyPressEKnife = "Press E to pick up the knife";
+    public const string keyPressENote = "Press E to take your order";
+    public const string keyPressEItem = "Press E to use";
+    public const string keyPressEDishes = "Press E to pick up the dishes";
+    public const string keyEInput = "Interact";
+    public const string keyFInput = "Throw away all the ingredients";
+    public const string keyTInput = "Throw away one ingredient";
+    public const string keyGInput = "Throw the item away";
 }
