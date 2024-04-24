@@ -10,8 +10,16 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 _playerVelocity = Vector3.zero;
     private float _horizontalInput, _verticalInput;
     private float _gravity = -9.81f;
+    private bool _locked = false;
+    private EventBus _bus;
+    private void Start()
+    {
+        _bus = ServiceLocator.Instance.Get<EventBus>();
+        _bus.Subscribe<ToggleMovementSignal>(OnToggleMovement);
+    }
     private void Update()
     {
+        if (_locked) return;
         OldInput();
         Vector3 forward = Camera.main.transform.forward;
         Vector3 right = Camera.main.transform.right;
@@ -38,5 +46,14 @@ public class PlayerMovement : MonoBehaviour
     private void Jump()
     {
         _playerVelocity.y = Mathf.Sqrt(-_jumpForce * _gravity);
+    }
+    private void OnToggleMovement(ToggleMovementSignal signal)
+    {
+        _locked = signal.data;
+    }
+    private void OnDisable()
+    {
+        if (_bus == null) return;
+        _bus.Unsubscribe<ToggleMovementSignal>(OnToggleMovement);
     }
 }

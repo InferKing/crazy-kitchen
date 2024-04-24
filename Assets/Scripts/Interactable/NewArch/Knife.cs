@@ -4,6 +4,7 @@ using UnityEngine;
 public class Knife : Grabbable
 {
     private Sequence _seq;
+    private Transform _parent;
     protected override void Start()
     {
         base.Start();
@@ -15,11 +16,25 @@ public class Knife : Grabbable
         if (interactable == null) return false;
         if (interactable is Sliceable item)
         {
-            // Не дать игроку двигаться во время анимации
-            // item.ToSlice();
-            // Починить (отделить от родителя, а также поставить kw)
-            _seq.Append(transform.DOMove(item.transform.position, 0.2f));
-            _seq.Append(transform.DORotate(new Vector3(0, 360, 0), 1f).OnComplete(() => { transform.localPosition = Vector3.zero; item.ToSlice(); }));
+            _parent = transform.parent;
+            transform.SetParent(item.transform, true);
+            _seq = DOTween.Sequence();
+            Bus.Invoke(new ToggleMovementSignal(true));
+            Bus.Invoke(new ToggleInteractSignal(true));
+            GetComponent<Collider>().enabled = false;
+            _seq.Append(transform.DOMove(item.transform.position + new Vector3(0, 0.07f, 0), 0.3f))
+                .Append(transform.DOPunchRotation(Vector3.forward * 25, 0.5f, 5)
+                .OnComplete(() =>
+                {
+                    transform.SetParent(_parent, true);
+                    transform.SetLocalPositionAndRotation(Vector3.zero, new Quaternion() { eulerAngles = PlaceRoatation });
+                    item.ToSlice();
+                    Bus.Invoke(new ToggleMovementSignal(false));
+                    Bus.Invoke(new ToggleInteractSignal(false));
+                    GetComponent<Collider>().enabled = true;
+
+                })
+            );
             stayInHand = true;
             return true;
         }

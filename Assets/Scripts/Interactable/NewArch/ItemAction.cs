@@ -6,14 +6,19 @@ public class ItemAction : MonoBehaviour, IInitializable
     // _interactable - на кого навелись
     // _activeInteractable - что в руках
     private EventBus _bus;
+    private bool _lockedInteract = false;
     public void Initialize()
     {
         _bus = ServiceLocator.Instance.Get<EventBus>();
         _bus.Subscribe<FindInteractableSignal>(OnFindInteractable);
         _bus.Subscribe<InputDownSignal>(OnInputDown);
         _bus.Subscribe<NoInteractableSignal>(OnNoInteractable);
-        _bus.Subscribe<LockInteractSignal>(OnLockInteract);
         _bus.Subscribe<ItemDroppedSignal>(OnItemDropped);
+        _bus.Subscribe<ToggleInteractSignal>(OnToggleInteract);
+    }
+    private void OnToggleInteract(ToggleInteractSignal signal)
+    {
+        _lockedInteract = signal.data;
     }
     private void OnFindInteractable(FindInteractableSignal signal)
     {
@@ -37,6 +42,7 @@ public class ItemAction : MonoBehaviour, IInitializable
     }
     private void OnInputDown(InputDownSignal signal)
     {
+        if (_lockedInteract) return;
         if (_activeInteractable != null && _interactable != null && Input.GetKeyDown(KeyCode.E))
         {
             if (_activeInteractable.TryCombine(_interactable, out bool stayInHand))
@@ -80,10 +86,6 @@ public class ItemAction : MonoBehaviour, IInitializable
             _interactable.Interact();
         }
     }
-    private void OnLockInteract(LockInteractSignal signal)
-    {
-        //_canInteract = !signal.data;
-    }
     private void OnItemDropped(ItemDroppedSignal signal)
     {
         _bus.Invoke(new GetItemOutOfHandSignal(_activeInteractable));
@@ -95,7 +97,7 @@ public class ItemAction : MonoBehaviour, IInitializable
         _bus.Unsubscribe<FindInteractableSignal>(OnFindInteractable);
         _bus.Unsubscribe<InputDownSignal>(OnInputDown);
         _bus.Unsubscribe<NoInteractableSignal>(OnNoInteractable);
-        _bus.Unsubscribe<LockInteractSignal>(OnLockInteract);
         _bus.Unsubscribe<ItemDroppedSignal>(OnItemDropped);
+        _bus.Unsubscribe<ToggleInteractSignal>(OnToggleInteract);
     }
 }

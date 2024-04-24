@@ -11,7 +11,7 @@ public class CameraMovement : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
     }
     private void Update()
-    {
+    {   
         _yaw = transform.localEulerAngles.y + Input.GetAxis("Mouse X") * _mouseSensitivity;
         _pitch -= _mouseSensitivity * Input.GetAxis("Mouse Y");
         _pitch = Mathf.Clamp(_pitch, -_maxLookAngle, _maxLookAngle);
