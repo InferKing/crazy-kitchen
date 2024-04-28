@@ -559,6 +559,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 947278395896757117, guid: ffb4abee45fd4f64680fdd936dafd5b2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4865123108368033676, guid: ffb4abee45fd4f64680fdd936dafd5b2, type: 3}
       propertyPath: m_CastShadows
       value: 1
@@ -614,6 +618,26 @@ PrefabInstance:
     - target: {fileID: 6626961763961446286, guid: ffb4abee45fd4f64680fdd936dafd5b2, type: 3}
       propertyPath: m_Name
       value: Building
+      objectReference: {fileID: 0}
+    - target: {fileID: 7277419695215841810, guid: ffb4abee45fd4f64680fdd936dafd5b2, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7277419695215841810, guid: ffb4abee45fd4f64680fdd936dafd5b2, type: 3}
+      propertyPath: m_Range
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7277419695215841810, guid: ffb4abee45fd4f64680fdd936dafd5b2, type: 3}
+      propertyPath: m_Intensity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7277419695215841810, guid: ffb4abee45fd4f64680fdd936dafd5b2, type: 3}
+      propertyPath: m_SpotAngle
+      value: 106.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7277419695215841810, guid: ffb4abee45fd4f64680fdd936dafd5b2, type: 3}
+      propertyPath: m_Lightmapping
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8975393439058244526, guid: ffb4abee45fd4f64680fdd936dafd5b2, type: 3}
       propertyPath: m_CastShadows
