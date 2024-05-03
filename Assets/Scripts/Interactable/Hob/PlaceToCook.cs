@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 [RequireComponent(typeof(BoxCollider))]
 public class PlaceToCook : Interactable, IObserver
@@ -30,18 +31,8 @@ public class PlaceToCook : Interactable, IObserver
             IsEmpty = true;
             _collider.enabled = true;
             _dish = null;
+            Bus.Invoke(new StopFXSignal(transform)); 
         }
-        //RaycastHit hit;
-        //Ray ray = new(transform.position, Vector3.up);
-        //if (Physics.Raycast(ray, out hit, _maxDistance, _interactableMask))
-        //{
-            
-        //}
-        //else
-        //{
-            
-        //    Debug.Log(_dish);
-        //}
     }
     public void ToStove(Dishes dish)
     {
@@ -53,11 +44,31 @@ public class PlaceToCook : Interactable, IObserver
         _collider.enabled = false;
         IsEmpty = false;
         Bus.Invoke(new ItemDroppedSignal());
+        UpdateInfo();
     }
 
     public void UpdateInfo()
     {
         _state = _toggle.GetState();
+        switch (_state)
+        {
+            case HobToggleState.Off:
+                Bus.Invoke(new StopFXSignal(transform));
+                break;
+            case HobToggleState.Low: 
+                Bus.Invoke(new PlayFXSignal(transform, FXType.LowSmoke));
+                break;
+            case HobToggleState.Medium:
+                Bus.Invoke(new PlayFXSignal(transform, FXType.MiddleSmoke));
+                break;
+            case HobToggleState.High:
+                Bus.Invoke(new PlayFXSignal(transform, FXType.HighSmoke));
+                break;
+        }
+        //if (_state is not HobToggleState.Off)
+        //{
+        //    Bus.Invoke(new PlayFXSignal(transform, FXType.LowSmoke));
+        //}
     }
     private IEnumerator Cook()
     {

@@ -32,7 +32,7 @@ public class Knife : Grabbable
                     Bus.Invoke(new ToggleMovementSignal(false));
                     Bus.Invoke(new ToggleInteractSignal(false));
                     GetComponent<Collider>().enabled = true;
-
+                    Bus.Invoke(new PlayFXSignal(item.transform, FXType.PuffSmoke));
                 })
             );
             stayInHand = true;
