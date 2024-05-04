@@ -224,8 +224,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _controllers:
-  - {fileID: 0}
   - {fileID: 5506341052181048294}
+  - {fileID: 0}
   - {fileID: 2883450478519613973}
   - {fileID: 1091141057299770394}
 --- !u!1 &7215859064095403713
@@ -439,7 +439,7 @@ Transform:
   - {fileID: 789578983872043365}
   - {fileID: 4426791083327087292}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &9147462583002963167
 GameObject:
