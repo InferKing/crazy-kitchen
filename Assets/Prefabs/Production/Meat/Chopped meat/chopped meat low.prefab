@@ -143,6 +143,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a837e4889fa2b6845a31a89494ac13bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <ObjectName>k__BackingField: Chopped meat
   _initRotation: {x: 90, y: 0, z: 0}
   _placeRotation: {x: 0, y: 0, z: 0}
   _rangeCookStates:

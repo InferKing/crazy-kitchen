@@ -8,4 +8,5 @@ public class Constants
     public const string keyFInput = "Throw away all the ingredients";
     public const string keyTInput = "Throw away one ingredient";
     public const string keyGInput = "Throw the item away";
+    public const string dishUINoIngredientText = "No ingredients inside";
 }

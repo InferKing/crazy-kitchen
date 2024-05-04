@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: d93438b09ace17643804ebc482422e96, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d93438b09ace17643804ebc482422e96, type: 3}
       propertyPath: m_LocalPosition.x
@@ -143,7 +143,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab117e2e76fb4db43942a2971870ff03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _canGet: 1
-  _lockRotationState: 0
+  <ObjectName>k__BackingField: Knife
   _initRotation: {x: -90, y: 0, z: 0}
   _placeRotation: {x: 6, y: -76, z: 57}

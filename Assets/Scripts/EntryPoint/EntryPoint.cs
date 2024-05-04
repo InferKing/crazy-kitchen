@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class EntryPoint : MonoBehaviour
 {
@@ -24,6 +25,7 @@ public class EntryPoint : MonoBehaviour
         {
             item.Initialize();
         }
+        DOTween.Init();
         _bus.Invoke(new ServicesInitializedSignal());
     }
     private void ValidateServices()

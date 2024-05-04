@@ -4,6 +4,7 @@ public class Interactable : BaseInteractable
 {
     private EventBus _bus;
     public EventBus Bus { get { return _bus; } }
+    [field: SerializeField] public string ObjectName { get; private set; } = "Unnamed";
     protected virtual void Start()
     {
         _bus = ServiceLocator.Instance.Get<EventBus>();

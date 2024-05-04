@@ -50,6 +50,7 @@ public class PlaceToCook : Interactable, IObserver
     public void UpdateInfo()
     {
         _state = _toggle.GetState();
+        if (IsEmpty) return;
         switch (_state)
         {
             case HobToggleState.Off:

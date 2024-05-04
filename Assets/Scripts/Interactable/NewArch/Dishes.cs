@@ -15,11 +15,13 @@ public class Dishes : Grabbable
     public override void OnEnter()
     {
         base.OnEnter();
+        Bus.Invoke(new ShowDishesUISignal(this));
         Bus.Invoke(new ShowItemTextSignal(Constants.keyPressEDishes));
     }
     public override void OnExit()
     {
         base.OnExit();
+        Bus.Invoke(new HideDishesUISignal(this));
         Bus.Invoke(new ShowItemTextSignal(string.Empty));
     }
     public void AddIngredient(Ingredient ingredient)
@@ -53,5 +55,6 @@ public class Dishes : Grabbable
             ingredient.Rb.isKinematic = false;
             ingredient.GetComponent<Collider>().enabled = true;
         });
+        _ingredients.Clear();
     }
 }
