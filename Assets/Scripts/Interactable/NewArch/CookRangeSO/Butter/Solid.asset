@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d898ce14ee2ed6847ae4da0c78cfd61e, type: 3}
-  m_Name: Fire
+  m_Name: Solid
   m_EditorClassIdentifier: 
-  _stateName: Black
-  _minSeconds: 380
+  _stateName: Solid
+  _minSeconds: 0
   _isInfinite: 1
   _maxSeconds: 2147483647
-  _material: {fileID: 2100000, guid: 65614ae2745c69246831edebda0742ae, type: 2}
+  _material: {fileID: 2100000, guid: 3c5d7cb38e8e83f49b31d3ca65a7ff69, type: 2}
