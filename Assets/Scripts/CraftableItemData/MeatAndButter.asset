@@ -17,4 +17,4 @@ MonoBehaviour:
   - _prefabIngredient: {fileID: 7051405469900084981, guid: c1c12c3cc046bb346b867589a560f5b3, type: 3}
     <Amount>k__BackingField: 1
   - _prefabIngredient: {fileID: 9208972800957772113, guid: b94b2af8747143a4bb850f6c7062b3ce, type: 3}
-    <Amount>k__BackingField: 1
+    <Amount>k__BackingField: 2

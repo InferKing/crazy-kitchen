@@ -32,6 +32,7 @@ public class Grabbable : Interactable
     {
         transform.DORotate(IgnoreYRotation, 0.1f);
         Rb.isKinematic = false;
+        Rb.AddForce(transform.position, ForceMode.Impulse);
         Bus.Invoke(new ItemDroppedSignal());
     }
 }
