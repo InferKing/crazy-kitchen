@@ -14,7 +14,6 @@ public class Pan : Dishes
         if (interactable is Cookable cookable)
         {
             AddIngredient(cookable);
-            PlaceIngredient(cookable);
             stayInHand = true;
             return true;
         }

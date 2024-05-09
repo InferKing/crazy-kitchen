@@ -27,11 +27,24 @@ public class Dishes : Grabbable
     public void AddIngredient(Ingredient ingredient)
     {
         _ingredients.Add(ingredient);
+        if (ServiceLocator.Instance.Get<CraftController>().TryCraftItem(ref _ingredients, out GameObject newItem))
+        {
+            var obj = Instantiate(newItem);
+            var ingred = obj.GetComponent<Ingredient>();
+            _ingredients.Add(ingred);
+            PlaceIngredient(ingred);
+        }
+        else
+        {
+            PlaceIngredient(ingredient);
+        }
+        
     }
     public virtual void PlaceIngredient(Ingredient item)
     {
         item.transform.SetParent(transform);
         item.transform.localPosition = _placeToIngredient.transform.localPosition;
+        item.Rb = item.GetComponent<Rigidbody>();
         item.Rb.isKinematic = true;
         item.GetComponent<Collider>().enabled = false;
         item.transform.localRotation = Quaternion.Euler(0, 0, item.transform.rotation.eulerAngles.z);
