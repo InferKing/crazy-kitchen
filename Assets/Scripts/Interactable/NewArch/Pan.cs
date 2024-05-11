@@ -1,3 +1,4 @@
+using DG.Tweening;
 using UnityEngine;
 
 public class Pan : Dishes
@@ -24,5 +25,12 @@ public class Pan : Dishes
             return true;
         }
         return false;
+    }
+    public override void Drop()
+    {
+        transform.DORotate(IgnoreYZRotation, 0.1f);
+        Rb.isKinematic = false;
+        Rb.AddForce(Camera.main.transform.forward * 2, ForceMode.Impulse);
+        Bus.Invoke(new ItemDroppedSignal());
     }
 }
