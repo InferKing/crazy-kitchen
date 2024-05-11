@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _stateName: Black
   _minSeconds: 290
-  _isInfinite: 1
-  _maxSeconds: 2147483647
+  _isInfinite: 0
+  _maxSeconds: 379
   _material: {fileID: 2100000, guid: 65614ae2745c69246831edebda0742ae, type: 2}

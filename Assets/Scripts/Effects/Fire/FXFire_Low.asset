@@ -9,11 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d898ce14ee2ed6847ae4da0c78cfd61e, type: 3}
-  m_Name: Fire
+  m_Script: {fileID: 11500000, guid: 9d360bb5f3bd5fd4e8415645c8acc43b, type: 3}
+  m_Name: FXFire_Low
   m_EditorClassIdentifier: 
-  _stateName: Fire
-  _minSeconds: 380
-  _isInfinite: 1
-  _maxSeconds: 2147483647
-  _material: {fileID: 2100000, guid: 65614ae2745c69246831edebda0742ae, type: 2}
+  <Type>k__BackingField: 4
+  <Prefab>k__BackingField: {fileID: 6206784779343951563, guid: 48ca38fbc2ba9964c9cee4e8330e5b60, type: 3}

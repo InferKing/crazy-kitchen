@@ -27,7 +27,8 @@ public class FXController : SignalReceiver
             StopFX(signal.transform);
         }
         GameObject newFX = Instantiate(fx.Prefab);
-        newFX.transform.position = signal.transform.position;
+        newFX.transform.SetParent(signal.transform, true);
+        newFX.transform.localPosition = Vector3.zero;
         newFX.GetComponent<ParticleSystem>().Play();
         _matchFX[signal.transform] = newFX;
     }

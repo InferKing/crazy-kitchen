@@ -31,6 +31,11 @@ public class Cookable : Ingredient
             if (_activeCookRange != range)
             {
                 GetComponent<MeshRenderer>().material = range.Material;
+                if (range.StateName == "Fire")
+                {
+                    // should add method Init for instantiated objects
+                    ServiceLocator.Instance.Get<EventBus>().Invoke(new PlayFXSignal(transform, FXType.LowFire));
+                }
             }
             _activeCookRange = range;
         }

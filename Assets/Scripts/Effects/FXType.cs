@@ -3,5 +3,6 @@ public enum FXType
     LowSmoke,
     MiddleSmoke,
     HighSmoke,
-    PuffSmoke
+    PuffSmoke,
+    LowFire
 }

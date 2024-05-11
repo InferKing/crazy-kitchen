@@ -14524,7 +14524,7 @@ GameObject:
   - component: {fileID: 3046352568021688928}
   - component: {fileID: 885253937240496734}
   m_Layer: 0
-  m_Name: VFX_Fire_01_Big_Smoke
+  m_Name: Fire High
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

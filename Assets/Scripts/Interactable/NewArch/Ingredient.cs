@@ -3,12 +3,12 @@ public class Ingredient : Grabbable
     public override void OnEnter()
     {
         base.OnEnter();
-        Bus.Invoke(new ShowItemTextSignal(Constants.keyPressEItem));
+        ServiceLocator.Instance.Get<EventBus>().Invoke(new ShowItemTextSignal(Constants.keyPressEItem));
     }
 
     public override void OnExit()
     {
         base.OnExit();
-        Bus.Invoke(new ShowItemTextSignal(string.Empty));
+        ServiceLocator.Instance.Get<EventBus>().Invoke(new ShowItemTextSignal(string.Empty));
     }
 }

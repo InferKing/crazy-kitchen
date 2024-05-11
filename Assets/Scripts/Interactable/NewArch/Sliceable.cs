@@ -17,6 +17,8 @@ public class Sliceable : Cookable
             GameObject obj = Instantiate(item);
             obj.transform.position = transform.position;
             var temp = obj.GetComponent<Cookable>();
+            temp.OnEnter();
+            temp.OnExit();
             temp.TotalCookTime = TotalCookTime;
             temp.UpdateStateWhenRange();
         }
