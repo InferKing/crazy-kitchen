@@ -10,11 +10,12 @@ public class Sliceable : Cookable
     {
         base.Start();
     }
-    public virtual void ToSlice()
+    public virtual void ToSlice(out Transform tr)
     {
+        GameObject obj = null;
         foreach (var item in ItemsToSpawn)
         {
-            GameObject obj = Instantiate(item);
+            obj = Instantiate(item);
             obj.transform.position = transform.position;
             var temp = obj.GetComponent<Cookable>();
             temp.OnEnter();
@@ -22,12 +23,7 @@ public class Sliceable : Cookable
             temp.TotalCookTime = TotalCookTime;
             temp.UpdateStateWhenRange();
         }
+        tr = obj.transform;
         Destroy(gameObject);
-    }
-    public override bool TryCombine(Interactable interactable, out bool stayInHand)
-    {
-        stayInHand = false;
-        if (interactable == null) return false;
-        return false;
     }
 }

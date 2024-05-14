@@ -38,7 +38,6 @@ public class Dishes : Grabbable
         {
             PlaceIngredient(ingredient);
         }
-        
     }
     public virtual void PlaceIngredient(Ingredient item)
     {
@@ -53,10 +52,8 @@ public class Dishes : Grabbable
     {
         if (_ingredients.Count > 0)
         {
-            Ingredient value = _ingredients[_ingredients.Count - 1];
-            value.transform.parent = null;
-            value.Rb.isKinematic = false;
-            value.GetComponent<Collider>().enabled = true;
+            Ingredient value = _ingredients[^1];
+            PrepareToDrop(value);
             _ingredients.RemoveAt(_ingredients.Count - 1);
         }
     }
@@ -64,10 +61,14 @@ public class Dishes : Grabbable
     {
         _ingredients.ForEach(ingredient => 
         {
-            ingredient.transform.parent = null;
-            ingredient.Rb.isKinematic = false;
-            ingredient.GetComponent<Collider>().enabled = true;
+            PrepareToDrop(ingredient);
         });
         _ingredients.Clear();
     }
+    private void PrepareToDrop(Ingredient item)
+    {
+        item.transform.parent = null;
+        item.Rb.isKinematic = false;
+        item.GetComponent<Collider>().enabled = true;
+    } 
 }

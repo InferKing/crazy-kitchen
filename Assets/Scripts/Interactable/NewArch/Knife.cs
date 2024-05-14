@@ -28,11 +28,11 @@ public class Knife : Grabbable
                 {
                     transform.SetParent(_parent, true);
                     transform.SetLocalPositionAndRotation(Vector3.zero, new Quaternion() { eulerAngles = PlaceRoatation });
-                    item.ToSlice();
+                    item.ToSlice(out Transform new_transform);
+                    Bus.Invoke(new PlayFXSignal(new_transform, FXType.PuffSmoke));
                     Bus.Invoke(new ToggleMovementSignal(false));
                     Bus.Invoke(new ToggleInteractSignal(false));
                     GetComponent<Collider>().enabled = true;
-                    Bus.Invoke(new PlayFXSignal(item.transform, FXType.PuffSmoke));
                 })
             );
             stayInHand = true;
