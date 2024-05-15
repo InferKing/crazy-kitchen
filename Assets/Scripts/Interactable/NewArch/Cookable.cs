@@ -7,10 +7,11 @@ using UnityEngine;
 public class Cookable : Ingredient
 {
     [SerializeField] private List<CookRange> _rangeCookStates;
-    private int _totalCookTime = 0;
+    [SerializeField] private int _totalCookTime = 0;
     private CookRange _activeCookRange;
     public string IngredientCookState { get { return _activeCookRange.StateName; } }
     public int TotalCookTime { get { return _totalCookTime; } set { _totalCookTime = value; } }
+    public bool IsInFire { get; set; } = false;
     public void Cook(int cookDeltaTime)
     {
         if (cookDeltaTime <= 0)
@@ -35,6 +36,7 @@ public class Cookable : Ingredient
                 {
                     // should add method Init for instantiated objects
                     ServiceLocator.Instance.Get<EventBus>().Invoke(new PlayFXSignal(transform, FXType.LowFire));
+                    IsInFire = true;
                 }
             }
             _activeCookRange = range;

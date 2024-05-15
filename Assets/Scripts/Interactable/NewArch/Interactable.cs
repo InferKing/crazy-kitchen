@@ -6,7 +6,7 @@ public class Interactable : BaseInteractable
     public EventBus Bus { get { return _bus; } }
     [field: SerializeField] public string ObjectName { get; private set; } = "Unnamed";
     [Tooltip("Put some transform if you want to replace basic gameobject transform for fx")]
-    [field: SerializeField] public Transform TransformToFX {  get; private set; }
+    [field: SerializeField] public Transform TransformToFX {  get; protected set; }
     protected virtual void Start()
     {
         _bus = ServiceLocator.Instance.Get<EventBus>();

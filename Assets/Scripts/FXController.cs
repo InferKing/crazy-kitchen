@@ -29,6 +29,10 @@ public class FXController : SignalReceiver
         GameObject newFX = Instantiate(fx.Prefab);
         newFX.transform.SetParent(signal.transform, true);
         newFX.transform.localPosition = Vector3.zero;
+        if (signal.lookAt)
+        {
+            newFX.transform.LookAt(signal.lookAt);
+        }
         newFX.GetComponent<ParticleSystem>().Play();
         _matchFX[signal.transform] = newFX;
     }
