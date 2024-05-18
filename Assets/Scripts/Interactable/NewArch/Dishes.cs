@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Dishes : Grabbable
@@ -56,6 +57,10 @@ public class Dishes : Grabbable
             PrepareToDrop(value);
             _ingredients.RemoveAt(_ingredients.Count - 1);
         }
+    }
+    public Ingredient GetIngredientInFire()
+    {
+        return Ingredients.FirstOrDefault(item => item is Cookable cookable && cookable.IsInFire);
     }
     public virtual void DropAllIngredients()
     {

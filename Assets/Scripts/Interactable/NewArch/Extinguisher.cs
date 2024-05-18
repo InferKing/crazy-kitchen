@@ -1,6 +1,7 @@
 
 using DG.Tweening;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 public class Extinguisher : Grabbable
 {
@@ -19,38 +20,52 @@ public class Extinguisher : Grabbable
         if (interactable == null) return false;
         if (interactable is Cookable item && item.IsInFire)
         {
-            _parent = transform.parent;
-            transform.SetParent(item.transform, true);
-            _seq = DOTween.Sequence();
-            Bus.Invoke(new ToggleMovementSignal(true));
-            Bus.Invoke(new ToggleInteractSignal(true));
-            GetComponent<Collider>().enabled = false;
-            Vector3 pos = transform.position;
-            _seq.Append(transform.DOMove(transform.position + Camera.main.transform.forward * 0.3f, 0.4f));
-            _seq.Append(_handle.transform.DOLocalRotate(Vector3.down * 15, 0.3f)
-                .OnComplete(() =>
-                {
-                    Bus.Invoke(new PlayFXSignal(TransformToFX, FXType.ExtinguisherSmoke, item.transform));
-                }));
-            _seq.Append(_handle.transform.DOLocalRotate(Vector3.zero, 0.15f)
-                .SetDelay(1.8f)
-                .OnComplete(() =>
-                {
-                    Bus.Invoke(new StopFXSignal(item.transform));
-                }));
-            _seq.Append(transform.DOMove(pos, 0.3f).OnComplete(() =>
-            {
-                transform.SetParent(_parent, true);
-                transform.SetLocalPositionAndRotation(Vector3.zero, new Quaternion() { eulerAngles = PlaceRoatation });
-                Bus.Invoke(new ToggleMovementSignal(false));
-                Bus.Invoke(new ToggleInteractSignal(false));
-                GetComponent<Collider>().enabled = true;
-            }));
-            item.IsInFire = false;
+            Extinguish(item);
             stayInHand = true;
             return true;
         }
+        else if (interactable is Dishes dish)
+        {
+            Ingredient objInFire = dish.GetIngredientInFire();
+            if (objInFire != null)
+            {
+                Extinguish((Cookable)objInFire);
+                stayInHand = true;
+                return true;
+            }
+        }
         return false;
+    }
+    private void Extinguish(Cookable item)
+    {
+        _parent = transform.parent;
+        transform.SetParent(item.transform, true);
+        _seq = DOTween.Sequence();
+        Bus.Invoke(new ToggleMovementSignal(true));
+        Bus.Invoke(new ToggleInteractSignal(true));
+        GetComponent<Collider>().enabled = false;
+        Vector3 pos = transform.position;
+        _seq.Append(transform.DOMove(transform.position + Camera.main.transform.forward * 0.3f, 0.4f));
+        _seq.Append(_handle.transform.DOLocalRotate(Vector3.down * 15, 0.3f)
+        .OnComplete(() =>
+        {
+                Bus.Invoke(new PlayFXSignal(TransformToFX, FXType.ExtinguisherSmoke, item.transform));
+            }));
+        _seq.Append(_handle.transform.DOLocalRotate(Vector3.zero, 0.15f)
+            .SetDelay(1.8f)
+            .OnComplete(() =>
+            {
+                Bus.Invoke(new StopFXSignal(item.transform));
+            }));
+        _seq.Append(transform.DOMove(pos, 0.3f).OnComplete(() =>
+        {
+            transform.SetParent(_parent, true);
+            transform.SetLocalPositionAndRotation(Vector3.zero, new Quaternion() { eulerAngles = PlaceRoatation });
+            Bus.Invoke(new ToggleMovementSignal(false));
+            Bus.Invoke(new ToggleInteractSignal(false));
+            GetComponent<Collider>().enabled = true;
+        }));
+        item.IsInFire = false;
     }
     public override void Drop()
     {
