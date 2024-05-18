@@ -23,7 +23,9 @@ public class Sliceable : Cookable
             temp.TotalCookTime = TotalCookTime;
             temp.UpdateStateWhenRange();
         }
-        tr = obj.transform;
+        tr = new GameObject().transform;
+        tr.position = transform.position;
         Destroy(gameObject);
+        Destroy(tr.gameObject, 3);
     }
 }
