@@ -6,8 +6,8 @@ public class Door : Interactable
 {
     [SerializeField] private Vector3 _fromRotation, _toRotation;
     [SerializeField, Min(0)] private float _timeToRotate = 0.3f;
-    private StateMachine _fsm;
-    private const string _open = "open", _close = "close";
+    protected StateMachine _fsm;
+    protected const string _open = "open", _close = "close";
     protected override void Start()
     {
         base.Start();
@@ -37,4 +37,5 @@ public class Door : Interactable
         base.OnExit();
         Bus.Invoke(new ShowItemTextSignal(string.Empty));
     }
+
 }
