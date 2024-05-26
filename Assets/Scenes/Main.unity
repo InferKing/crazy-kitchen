@@ -4652,7 +4652,7 @@ MonoBehaviour:
   <TransformToFX>k__BackingField: {fileID: 0}
   _initRotation: {x: 0, y: 0, z: 0}
   _placeRotation: {x: 0, y: 0, z: 0}
-  _placeToIngredient: {fileID: 0}
+  _placeToIngredient: []
 --- !u!65 &440981791
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8242,6 +8242,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5715863704728627919, guid: 891bd3326417bdf4aa6c6639a3504c2b, type: 3}
   m_PrefabInstance: {fileID: 1252575249}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &716042253
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 716042254}
+  m_Layer: 3
+  m_Name: PlaceToIngredient (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &716042254
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 716042253}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.00311, y: -0.00002, z: 0.00055}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1205928425}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &725457809
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18983,6 +19014,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1363793352}
     m_Modifications:
+    - target: {fileID: 3190037529449598104, guid: 6550739a5b0b89440bcc66391812a52e, type: 3}
+      propertyPath: _placeToIngredient.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3190037529449598104, guid: 6550739a5b0b89440bcc66391812a52e, type: 3}
+      propertyPath: _placeToIngredient.Array.data[0]
+      value: 
+      objectReference: {fileID: 1643141293}
+    - target: {fileID: 3190037529449598104, guid: 6550739a5b0b89440bcc66391812a52e, type: 3}
+      propertyPath: _placeToIngredient.Array.data[1]
+      value: 
+      objectReference: {fileID: 716042253}
     - target: {fileID: 4898850535736562939, guid: 6550739a5b0b89440bcc66391812a52e, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -19043,11 +19086,27 @@ PrefabInstance:
       propertyPath: m_Name
       value: frying_pan_v2_low Variant (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7447925786441884347, guid: 6550739a5b0b89440bcc66391812a52e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.00396
+      objectReference: {fileID: 0}
+    - target: {fileID: 7447925786441884347, guid: 6550739a5b0b89440bcc66391812a52e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.00003
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 4898850535736562939, guid: 6550739a5b0b89440bcc66391812a52e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 716042254}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6550739a5b0b89440bcc66391812a52e, type: 3}
+--- !u!1 &1643141293 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1877557925899321373, guid: 6550739a5b0b89440bcc66391812a52e, type: 3}
+  m_PrefabInstance: {fileID: 1643141292}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1646737593
 PrefabInstance:
   m_ObjectHideFlags: 0

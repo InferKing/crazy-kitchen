@@ -4,12 +4,17 @@ using UnityEngine;
 
 public class Dishes : Grabbable
 {
-    [SerializeField] private GameObject _placeToIngredient;
+    [SerializeField] private List<GameObject> _placeToIngredient;
     private List<Ingredient> _ingredients = new();
+    private Dictionary<GameObject, PlaceIngredientData> _placesBusy = new();
     public IReadOnlyList<Ingredient> Ingredients { get { return _ingredients; } }
     protected override void Start()
     {
         base.Start();
+        foreach (var item in _placeToIngredient)
+        {
+            _placesBusy.Add(item, new PlaceIngredientData(false, new List<Ingredient>()));
+        }
         _actionKeys.Add(KeyCode.F, () => DropAllIngredients());
         _actionKeys.Add(KeyCode.T, () => DropIngredient());
     }
@@ -43,12 +48,26 @@ public class Dishes : Grabbable
     public virtual void PlaceIngredient(Ingredient item)
     {
         item.transform.SetParent(transform);
-        item.transform.localPosition = _placeToIngredient.transform.localPosition;
+        var newPosGO = _placesBusy.FirstOrDefault(item => !item.Value.busy);
+        if (newPosGO.Value != null)
+        {
+            _placesBusy[newPosGO.Key].busy = true;
+            _placesBusy[newPosGO.Key].ingredients.Add(item);
+            item.transform.localPosition = newPosGO.Key.transform.localPosition;
+        }
+        else
+        {
+            var randomIndex = Random.Range(0, _placeToIngredient.Count);
+            _placesBusy[_placeToIngredient[randomIndex]].ingredients.Add(item);
+            _placesBusy[_placeToIngredient[randomIndex]].busy = true;
+            item.transform.localPosition = _placeToIngredient[randomIndex].transform.localPosition;
+        }
         item.Rb = item.GetComponent<Rigidbody>();
         item.Rb.isKinematic = true;
         item.GetComponent<Collider>().enabled = false;
         item.transform.localRotation = Quaternion.Euler(0, 0, item.transform.rotation.eulerAngles.z);
     }
+    // TODO: элементы не выкидываются, но запоминаются
     public virtual void DropIngredient()
     {
         if (_ingredients.Count > 0)
@@ -76,4 +95,15 @@ public class Dishes : Grabbable
         item.Rb.isKinematic = false;
         item.GetComponent<Collider>().enabled = true;
     } 
+}
+// Перенести в отдельный скрипт
+public class PlaceIngredientData
+{
+    public bool busy;
+    public List<Ingredient> ingredients;
+    public PlaceIngredientData(bool busy, List<Ingredient> ingredients)
+    {
+        this.busy = busy;
+        this.ingredients = ingredients;
+    }
 }
