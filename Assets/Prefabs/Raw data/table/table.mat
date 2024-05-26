@@ -12,8 +12,6 @@ Material:
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
-  - _METALLICGLOSSMAP
-  - _NORMALMAP
   - _SPECGLOSSMAP
   - _SPECULARHIGHLIGHTS_OFF
   m_InvalidKeywords: []
@@ -32,7 +30,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
-        m_Texture: {fileID: 2800000, guid: d1ffe993902e01a41b414f6504a10fe8, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -64,7 +62,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
-        m_Texture: {fileID: 2800000, guid: c1e4e694ebe808d46bd2ef560e7a9c3f, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NORMAL_MAP:
@@ -131,7 +129,7 @@ Material:
     - _DstBlend: 0
     - _Fluffiness: 0.75
     - _GlossMapScale: 0.085
-    - _Glossiness: 0.5
+    - _Glossiness: 0.484
     - _GlossyReflections: 1
     - _IntensityInput: 1.6
     - _IntensityOutput: 1
@@ -141,7 +139,7 @@ Material:
     - _Level0: 0
     - _Level1: 10
     - _METALNESS: 0
-    - _Metallic: 0
+    - _Metallic: 1
     - _Mode: 0
     - _OPACITY: 1
     - _OcclusionStrength: 1
