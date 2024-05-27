@@ -32,7 +32,7 @@ public class EventBus : IService
                 callback?.Invoke(signal);
             }
 #if UNITY_EDITOR
-            //Debug.Log($"{key} invoked");
+            Debug.Log($"{key} invoked");
 #endif
         }
     }
