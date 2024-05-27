@@ -4172,7 +4172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 772ac8051d2f6c045ab58a420d8e003a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <ObjectName>k__BackingField: Unnamed
+  <ObjectName>k__BackingField: Metal plate
   <TransformToFX>k__BackingField: {fileID: 0}
   _initRotation: {x: -90, y: -90, z: 0}
   _placeRotation: {x: -90, y: -90, z: 0}
@@ -11467,7 +11467,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 772ac8051d2f6c045ab58a420d8e003a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <ObjectName>k__BackingField: Unnamed
+  <ObjectName>k__BackingField: Metal plate
   <TransformToFX>k__BackingField: {fileID: 0}
   _initRotation: {x: -90, y: -90, z: 0}
   _placeRotation: {x: -90, y: -90, z: 0}
@@ -19442,7 +19442,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 772ac8051d2f6c045ab58a420d8e003a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <ObjectName>k__BackingField: Unnamed
+  <ObjectName>k__BackingField: Metal plate
   <TransformToFX>k__BackingField: {fileID: 0}
   _initRotation: {x: -90, y: -90, z: 0}
   _placeRotation: {x: -90, y: -90, z: 0}
@@ -20979,7 +20979,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 772ac8051d2f6c045ab58a420d8e003a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <ObjectName>k__BackingField: Unnamed
+  <ObjectName>k__BackingField: Metal plate
   <TransformToFX>k__BackingField: {fileID: 0}
   _initRotation: {x: -90, y: -90, z: 0}
   _placeRotation: {x: -90, y: -90, z: 0}
@@ -22000,7 +22000,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9115835943610240885, guid: a3b85ee7155343c0a5077c56fdbddf1f, type: 3}
       propertyPath: m_RootOrder
-      value: 43
+      value: 44
       objectReference: {fileID: 0}
     - target: {fileID: 9115835943610240885, guid: a3b85ee7155343c0a5077c56fdbddf1f, type: 3}
       propertyPath: m_LocalScale.x
@@ -22457,7 +22457,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 772ac8051d2f6c045ab58a420d8e003a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <ObjectName>k__BackingField: Unnamed
+  <ObjectName>k__BackingField: Metal plate
   <TransformToFX>k__BackingField: {fileID: 0}
   _initRotation: {x: -90, y: -90, z: 0}
   _placeRotation: {x: -90, y: -90, z: 0}
@@ -36162,7 +36162,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6255332938791532556, guid: ffb4abee45fd4f64680fdd936dafd5b2, type: 3}
       propertyPath: m_RootOrder
-      value: 42
+      value: 43
       objectReference: {fileID: 0}
     - target: {fileID: 6255332938791532556, guid: ffb4abee45fd4f64680fdd936dafd5b2, type: 3}
       propertyPath: m_LocalPosition.x
