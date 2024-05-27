@@ -149,6 +149,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _craftableList:
   - {fileID: 11400000, guid: 7e3ed3ad6ecc45a4f87481aec1db555f, type: 2}
+  - {fileID: 11400000, guid: ba9fb27518c35394ca83222e045d71fc, type: 2}
 --- !u!1 &4703162888374788644
 GameObject:
   m_ObjectHideFlags: 0
@@ -487,7 +488,7 @@ Transform:
   - {fileID: 789578983872043365}
   - {fileID: 4426791083327087292}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &9147462583002963167
 GameObject:
