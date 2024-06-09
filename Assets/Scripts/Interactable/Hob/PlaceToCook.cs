@@ -43,10 +43,9 @@ public class PlaceToCook : Interactable, IObserver
         _collider.enabled = false;
         IsEmpty = false;
         Bus.Invoke(new ItemDroppedSignal());
-        UpdateInfo();
+        UpdatedState();
     }
-
-    public void UpdateInfo()
+    private void UpdatedState()
     {
         _state = _toggle.GetState();
         if (IsEmpty) return;
@@ -55,7 +54,7 @@ public class PlaceToCook : Interactable, IObserver
             case HobToggleState.Off:
                 Bus.Invoke(new StopFXSignal(transform));
                 break;
-            case HobToggleState.Low: 
+            case HobToggleState.Low:
                 Bus.Invoke(new PlayFXSignal(transform, FXType.LowSmoke));
                 break;
             case HobToggleState.Medium:
@@ -65,6 +64,11 @@ public class PlaceToCook : Interactable, IObserver
                 Bus.Invoke(new PlayFXSignal(transform, FXType.HighSmoke));
                 break;
         }
+    }
+
+    public void UpdateInfo(IObservable observable)
+    {
+        UpdatedState();
         //if (_state is not HobToggleState.Off)
         //{
         //    Bus.Invoke(new PlayFXSignal(transform, FXType.LowSmoke));

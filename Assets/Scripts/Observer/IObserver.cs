@@ -1,4 +1,4 @@
 public interface IObserver
 {
-    public void UpdateInfo();
+    public void UpdateInfo(IObservable observable);
 }

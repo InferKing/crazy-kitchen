@@ -88,7 +88,7 @@ public class HobToggle : Interactable, IObservable
     {
         foreach (var o in _observers)
         {
-            o.UpdateInfo();
+            o.UpdateInfo(this);
         }
     }
 }
