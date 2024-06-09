@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class Computer : Interactable
 {
@@ -14,7 +15,8 @@ public class Computer : Interactable
     public override void Interact()
     {
         _lastPosition = Camera.main.transform.position;
-        Camera.main.transform.SetPositionAndRotation(_cameraTransform.position, _cameraTransform.rotation);
+        Camera.main.transform.DOMove(_cameraTransform.position, 0.7f);
+        Camera.main.transform.DORotate(_cameraTransform.eulerAngles, 0.7f);
         Bus.Invoke(new ToggleInteractSignal(true));
         Bus.Invoke(new ToggleMovementSignal(true));
         Bus.Invoke(new ToggleRotationSignal(true));
