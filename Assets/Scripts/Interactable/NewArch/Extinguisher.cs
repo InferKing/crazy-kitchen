@@ -1,7 +1,6 @@
 
 using DG.Tweening;
 using UnityEngine;
-using static UnityEditor.Progress;
 
 public class Extinguisher : Grabbable
 {

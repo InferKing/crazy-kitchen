@@ -48,6 +48,5 @@ public class Computer : Interactable
     {
         if (Bus == null) return;
         Bus.Unsubscribe<ExitComputerSignal>(OnExitComputer);
-
     }
 }

@@ -26,6 +26,7 @@ public class InteractableHandler : MonoBehaviour
             };
             signal.data.transform.localRotation = q;
             q.eulerAngles = Vector3.zero;
+            item.GetByUser = true;
         }
     }
     private void OnItemDropped(ItemDroppedSignal signal)

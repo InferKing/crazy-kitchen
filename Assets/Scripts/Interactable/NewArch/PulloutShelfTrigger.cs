@@ -11,4 +11,11 @@ public class PulloutShelfTrigger : MonoBehaviour
             component.transform.SetParent(transform, true);
         }
     }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.TryGetComponent(out Grabbable component) && !component.GetByUser)
+        {
+            component.transform.parent = null;
+        }
+    }
 }

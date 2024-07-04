@@ -7,7 +7,7 @@ public class Grabbable : Interactable
 {
     [SerializeField] private Vector3 _initRotation = Vector3.zero;
     [SerializeField] private Vector3 _placeRotation = Vector3.zero;
-    private bool _canGetAtMoment = false;
+    public bool GetByUser { get; set; } = false;
     public Rigidbody Rb { get; set; }
     public Vector3 InitRotation { get { return _initRotation; } }
     public Vector3 PlaceRoatation { get { return _placeRotation; } }
@@ -30,6 +30,7 @@ public class Grabbable : Interactable
     }
     public virtual void Drop()
     {
+        GetByUser = false;
         transform.DORotate(IgnoreYRotation, 0.1f);
         Rb.isKinematic = false;
         Rb.AddForce(Camera.main.transform.forward * 2, ForceMode.Impulse);
