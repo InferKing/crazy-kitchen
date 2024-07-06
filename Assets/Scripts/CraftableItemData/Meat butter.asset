@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb3791f4cfd7250449385c069ca19a61, type: 3}
   m_Name: Meat butter
   m_EditorClassIdentifier: 
-  <Prefab>k__BackingField: {fileID: 919132149155446097, guid: 8fd0ffcb4f5d37a4d88d02aac2f2998a, type: 3}
+  <Prefab>k__BackingField: {fileID: 3045452171720233809, guid: e4ddc165e4aa5174d88cfb491c1b5a13, type: 3}
   <Elements>k__BackingField:
   - _prefabIngredient: {fileID: 4466151480065329971, guid: 069e6a846924bae418b37a4810377c6c, type: 3}
     <Amount>k__BackingField: 1
