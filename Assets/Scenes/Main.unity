@@ -1543,11 +1543,6 @@ Transform:
   m_Father: {fileID: 1247887718}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &104006234 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 789578983872043365, guid: 5649ae8e02badd14fb026ca3a735ab5c, type: 3}
-  m_PrefabInstance: {fileID: 2584028888236519810}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &104649529 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: a5007ee7e83b4234f8f798c8e51a0199, type: 3}
@@ -6367,34 +6362,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b6e9e8d27f80e0f45ae051b35e6f585f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 366644961}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b6e9e8d27f80e0f45ae051b35e6f585f, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 366644960}
   m_SourcePrefab: {fileID: 100100000, guid: b6e9e8d27f80e0f45ae051b35e6f585f, type: 3}
 --- !u!1 &366644959 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: b6e9e8d27f80e0f45ae051b35e6f585f, type: 3}
   m_PrefabInstance: {fileID: 366644958}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &366644960
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 366644959}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4eda79009a318c345938d93953dfa1cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <ObjectName>k__BackingField: Potato
-  <TransformToFX>k__BackingField: {fileID: 0}
-  _initRotation: {x: 0, y: 0, z: 0}
-  _placeRotation: {x: 0, y: 0, z: 0}
-  _rangeCookStates: []
-  _totalCookTime: 0
-  _itemsToSpawn: []
 --- !u!54 &366644961
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -28643,53 +28616,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 24cb186db45191f49b9495c3d862d911, type: 3}
---- !u!1 &1424462354
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1424462355}
-  - component: {fileID: 1424462356}
-  m_Layer: 0
-  m_Name: ShopButtonController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1424462355
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1424462354}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 104006234}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1424462356
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1424462354}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe921a654c7a28644b3eb572dc0fe878, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _toggles:
-  - {fileID: 1039912075}
-  - {fileID: 1925484314}
 --- !u!1001 &1429335899
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -41982,18 +41908,6 @@ PrefabInstance:
       propertyPath: _placeToInteractItem
       value: 
       objectReference: {fileID: 1500070052}
-    - target: {fileID: 5130278401997412437, guid: 5649ae8e02badd14fb026ca3a735ab5c, type: 3}
-      propertyPath: _fx.Array.size
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 5130278401997412437, guid: 5649ae8e02badd14fb026ca3a735ab5c, type: 3}
-      propertyPath: _fx.Array.data[4]
-      value: 
-      objectReference: {fileID: 11400000, guid: 6e5e81edc3892e04190a4f74084a3f84, type: 2}
-    - target: {fileID: 5130278401997412437, guid: 5649ae8e02badd14fb026ca3a735ab5c, type: 3}
-      propertyPath: _fx.Array.data[5]
-      value: 
-      objectReference: {fileID: 11400000, guid: 57b3cdd96efa43748984afe41e9b409c, type: 2}
     - target: {fileID: 5406039209273525149, guid: 5649ae8e02badd14fb026ca3a735ab5c, type: 3}
       propertyPath: _controllers.Array.data[1]
       value: 
@@ -42002,6 +41916,14 @@ PrefabInstance:
       propertyPath: _playerText
       value: 
       objectReference: {fileID: 128209316}
+    - target: {fileID: 5549698502364995549, guid: 5649ae8e02badd14fb026ca3a735ab5c, type: 3}
+      propertyPath: _toggles.Array.data[0]
+      value: 
+      objectReference: {fileID: 1039912075}
+    - target: {fileID: 5549698502364995549, guid: 5649ae8e02badd14fb026ca3a735ab5c, type: 3}
+      propertyPath: _toggles.Array.data[1]
+      value: 
+      objectReference: {fileID: 1925484314}
     - target: {fileID: 8248337325622973937, guid: 5649ae8e02badd14fb026ca3a735ab5c, type: 3}
       propertyPath: _ingredientDish
       value: 
@@ -42020,10 +41942,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 789578983872043365, guid: 5649ae8e02badd14fb026ca3a735ab5c, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1424462355}
+    m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5649ae8e02badd14fb026ca3a735ab5c, type: 3}
 --- !u!1001 &7802716578457329423

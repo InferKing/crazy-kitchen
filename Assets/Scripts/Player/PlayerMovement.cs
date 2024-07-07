@@ -38,10 +38,10 @@ public class PlayerMovement : MonoBehaviour
     {
         _horizontalInput = Input.GetAxisRaw("Horizontal");
         _verticalInput = Input.GetAxisRaw("Vertical");
-        if (Input.GetKeyDown(KeyCode.Space) && _characterController.isGrounded)
-        {
-            // Jump();
-        }
+        //if (Input.GetKeyDown(KeyCode.Space) && _characterController.isGrounded)
+        //{
+        //    Jump();
+        //}
     }
     private void Jump()
     {
