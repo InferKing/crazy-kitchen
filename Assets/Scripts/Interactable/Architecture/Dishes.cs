@@ -1,10 +1,13 @@
+using NaughtyAttributes;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
 public class Dishes : Grabbable
 {
-    [SerializeField] protected List<GameObject> _placeToIngredient;
+    public bool allIngredients;
+    [ShowIf("allIngredients"), SerializeField] protected List<GameObject> _placeToIngredient;
+    [HideIf("allIngredients"), SerializeField] private List<ItemsDishesMatch> _authorizedItems = new();
     private List<Ingredient> _ingredients = new();
     private Dictionary<GameObject, PlaceIngredientData> _placesBusy = new();
     public IReadOnlyList<Ingredient> Ingredients { get { return _ingredients; } }

@@ -2174,6 +2174,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1388557715509701544, guid: 6b17f9fed7ed88b4b9565ce9288a640b, type: 3}
+      propertyPath: allIngredients
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3507615780093899770, guid: 6b17f9fed7ed88b4b9565ce9288a640b, type: 3}
+      propertyPath: allIngredients
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3507615780093899770, guid: 6b17f9fed7ed88b4b9565ce9288a640b, type: 3}
       propertyPath: _authorizedItems.Array.size
       value: 3
