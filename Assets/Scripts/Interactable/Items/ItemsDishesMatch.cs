@@ -6,5 +6,5 @@ using UnityEngine;
 public class ItemsDishesMatch
 {
     public Ingredient ingredient;
-    public List<GameObject> wherePlace;
+    
 }

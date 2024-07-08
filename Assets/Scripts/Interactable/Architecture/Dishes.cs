@@ -5,18 +5,37 @@ using UnityEngine;
 
 public class Dishes : Grabbable
 {
+    [OnValueChanged("OnAllIngredients")]
     public bool allIngredients;
-    [ShowIf("allIngredients"), SerializeField] protected List<GameObject> _placeToIngredient;
-    [HideIf("allIngredients"), SerializeField] private List<ItemsDishesMatch> _authorizedItems = new();
+    [SerializeField] private List<LimitItemsInDishes> _limitItems = new();
     private List<Ingredient> _ingredients = new();
     private Dictionary<GameObject, PlaceIngredientData> _placesBusy = new();
+    
     public IReadOnlyList<Ingredient> Ingredients { get { return _ingredients; } }
+    
+    private void OnAllIngredients()
+    {
+        if (allIngredients)
+        {
+            _limitItems.Clear();
+            _limitItems.Add(new LimitItemsInDishes(ItemType.AllIngredients, 0));
+        }
+    }
+
     protected override void Start()
     {
         base.Start();
-        foreach (var item in _placeToIngredient)
+        if (allIngredients)
         {
-            _placesBusy.Add(item, new PlaceIngredientData(false, new List<Ingredient>()));
+            //foreach (var item in _placeToIngredient)
+            //{
+            //    _placesBusy.Add(item, new PlaceIngredientData(false, new List<Ingredient>()));
+            //}
+        }
+        else
+        {
+            // ????????
+            Debug.LogError("ÄÎËÁÎÅÁ ÒÛ ÍÀÕÓß ÃÀËÎ×ÊÓ ÑÍßË?!");
         }
         _actionKeys.Add(KeyCode.F, () => DropAllIngredients());
         _actionKeys.Add(KeyCode.T, () => DropIngredient());
@@ -60,10 +79,10 @@ public class Dishes : Grabbable
         }
         else
         {
-            var randomIndex = Random.Range(0, _placeToIngredient.Count);
-            _placesBusy[_placeToIngredient[randomIndex]].ingredients.Add(item);
-            _placesBusy[_placeToIngredient[randomIndex]].busy = true;
-            item.transform.localPosition = _placeToIngredient[randomIndex].transform.localPosition;
+            //var randomIndex = Random.Range(0, _placeToIngredient.Count);
+            //_placesBusy[_placeToIngredient[randomIndex]].ingredients.Add(item);
+            //_placesBusy[_placeToIngredient[randomIndex]].busy = true;
+            //item.transform.localPosition = _placeToIngredient[randomIndex].transform.localPosition;
         }
         item.Rb = item.GetComponent<Rigidbody>();
         item.Rb.isKinematic = true;

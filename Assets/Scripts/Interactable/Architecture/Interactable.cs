@@ -7,6 +7,8 @@ public class Interactable : BaseInteractable
     [field: SerializeField] public string ObjectName { get; private set; } = "Unnamed";
     [Tooltip("Put some transform if you want to replace basic gameobject transform for fx")]
     [field: SerializeField] public Transform TransformToFX {  get; protected set; }
+    [Tooltip("Use a type that refers to the object, not its exact description (for example, not red pepper, just pepper)")]
+    [field: SerializeField] public ItemType ItemType { get; private set; } = ItemType.None;
     protected virtual void Start()
     {
         _bus = ServiceLocator.Instance.Get<EventBus>();
