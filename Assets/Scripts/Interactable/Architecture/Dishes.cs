@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Dishes : Grabbable
 {
-    [SerializeField] private List<GameObject> _placeToIngredient;
+    [SerializeField] protected List<GameObject> _placeToIngredient;
     private List<Ingredient> _ingredients = new();
     private Dictionary<GameObject, PlaceIngredientData> _placesBusy = new();
     public IReadOnlyList<Ingredient> Ingredients { get { return _ingredients; } }
