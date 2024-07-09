@@ -2243,6 +2243,18 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 9080495508200149709, guid: ab23062216c01dc47a58b22d8cd3c171, type: 3}
     - target: {fileID: 3507615780093899770, guid: 6b17f9fed7ed88b4b9565ce9288a640b, type: 3}
+      propertyPath: _limitItems.Array.data[0].maxCountPerPlace
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3507615780093899770, guid: 6b17f9fed7ed88b4b9565ce9288a640b, type: 3}
+      propertyPath: _limitItems.Array.data[1].maxCountPerPlace
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3507615780093899770, guid: 6b17f9fed7ed88b4b9565ce9288a640b, type: 3}
+      propertyPath: _limitItems.Array.data[2].maxCountPerPlace
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3507615780093899770, guid: 6b17f9fed7ed88b4b9565ce9288a640b, type: 3}
       propertyPath: _limitItems.Array.data[0].wherePlace.Array.size
       value: 3
       objectReference: {fileID: 0}

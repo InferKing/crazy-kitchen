@@ -7,12 +7,13 @@ using NaughtyAttributes;
 public class LimitItemsInDishes
 {
     public ItemType type;
-    public int maxCount;
+    public int maxCountPerPlace;
     public List<GameObject> wherePlace = new();
 
-    public LimitItemsInDishes(ItemType type, int maxCount)
+    public LimitItemsInDishes(ItemType type, int maxCountPerPlace)
     {
         this.type = type;
-        this.maxCount = maxCount;
+        this.maxCountPerPlace = maxCountPerPlace;
     }
+
 }

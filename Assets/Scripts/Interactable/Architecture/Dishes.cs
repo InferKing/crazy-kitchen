@@ -15,28 +15,27 @@ public class Dishes : Grabbable
     
     private void OnAllIngredients()
     {
+        _limitItems.Clear();
         if (allIngredients)
         {
-            _limitItems.Clear();
             _limitItems.Add(new LimitItemsInDishes(ItemType.AllIngredients, 0));
+        }
+        else
+        {
+            _limitItems.Add(new LimitItemsInDishes(ItemType.None, 0));
         }
     }
 
     protected override void Start()
     {
         base.Start();
-        if (allIngredients)
+        _limitItems.ForEach(limit =>
         {
-            //foreach (var item in _placeToIngredient)
-            //{
-            //    _placesBusy.Add(item, new PlaceIngredientData(false, new List<Ingredient>()));
-            //}
-        }
-        else
-        {
-            // ????????
-            Debug.LogError("ÄÎËÁÎÅÁ ÒÛ ÍÀÕÓß ÃÀËÎ×ÊÓ ÑÍßË?!");
-        }
+            limit.wherePlace.ForEach(gObj =>
+            {
+                _placesBusy.Add(gObj, new PlaceIngredientData(new List<Ingredient>(), limit.maxCountPerPlace, limit.type));
+            });
+        });
         _actionKeys.Add(KeyCode.F, () => DropAllIngredients());
         _actionKeys.Add(KeyCode.T, () => DropIngredient());
     }
@@ -70,20 +69,28 @@ public class Dishes : Grabbable
     public virtual void PlaceIngredient(Ingredient item)
     {
         item.transform.SetParent(transform);
-        var newPosGO = _placesBusy.FirstOrDefault(item => !item.Value.busy);
+        var newPosGO = _placesBusy.FirstOrDefault(i => i.Value.type == item.ItemType);
         if (newPosGO.Value != null)
         {
-            _placesBusy[newPosGO.Key].busy = true;
-            _placesBusy[newPosGO.Key].ingredients.Add(item);
+            newPosGO.Value.AddIngredient(item);
             item.transform.localPosition = newPosGO.Key.transform.localPosition;
         }
-        else
-        {
-            //var randomIndex = Random.Range(0, _placeToIngredient.Count);
-            //_placesBusy[_placeToIngredient[randomIndex]].ingredients.Add(item);
-            //_placesBusy[_placeToIngredient[randomIndex]].busy = true;
-            //item.transform.localPosition = _placeToIngredient[randomIndex].transform.localPosition;
-        }
+
+
+
+        //if (newPosGO.Value != null)
+        //{
+        //    _placesBusy[newPosGO.Key].busy = true;
+        //    _placesBusy[newPosGO.Key].ingredients.Add(item);
+        //    item.transform.localPosition = newPosGO.Key.transform.localPosition;
+        //}
+        //else
+        //{
+        //    //var randomIndex = Random.Range(0, _placeToIngredient.Count);
+        //    //_placesBusy[_placeToIngredient[randomIndex]].ingredients.Add(item);
+        //    //_placesBusy[_placeToIngredient[randomIndex]].busy = true;
+        //    //item.transform.localPosition = _placeToIngredient[randomIndex].transform.localPosition;
+        //}
         item.Rb = item.GetComponent<Rigidbody>();
         item.Rb.isKinematic = true;
         item.GetComponent<Collider>().enabled = false;
@@ -117,27 +124,32 @@ public class Dishes : Grabbable
         item.Rb.isKinematic = false;
         item.GetComponent<Collider>().enabled = true;
     }
+    private bool HasEmptyPlace(Cookable cookable)
+    {
+        // need to check if the record exists
+        var item = _placesBusy.FirstOrDefault(item => item.Value.type == cookable.ItemType);
+        if (item.Value != null)
+        {
+            return !item.Value.IsBusy();
+        }
+        return false;
+    }
     public override bool TryCombine(Interactable interactable, out bool stayInHand)
     {
         stayInHand = false;
         if (interactable == null) return false;
         if (interactable is Cookable cookable)
         {
+            // need to check to see if there's space in the dish before adding
+            if (!HasEmptyPlace(cookable))
+            {
+                // notify player that dish don't contain empty place 
+                return false;
+            }
             AddIngredient(cookable);
             stayInHand = true;
             return true;
         }
         return false;
-    }
-}
-// Ïåðåíåñòè â îòäåëüíûé ñêðèïò
-public class PlaceIngredientData
-{
-    public bool busy;
-    public List<Ingredient> ingredients;
-    public PlaceIngredientData(bool busy, List<Ingredient> ingredients)
-    {
-        this.busy = busy;
-        this.ingredients = ingredients;
     }
 }
