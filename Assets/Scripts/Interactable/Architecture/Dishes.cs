@@ -69,12 +69,17 @@ public class Dishes : Grabbable
     public virtual void PlaceIngredient(Ingredient item)
     {
         item.transform.SetParent(transform);
-        var newPosGO = _placesBusy.FirstOrDefault(i => i.Value.type == item.ItemType && !i.Value.IsBusy());
-        if (newPosGO.Value != null)
+        KeyValuePair<GameObject, PlaceIngredientData> newPosGO;
+        if (allIngredients)
         {
-            newPosGO.Value.AddIngredient(item);
-            item.transform.localPosition = newPosGO.Key.transform.localPosition;
+            newPosGO = _placesBusy.FirstOrDefault(i => i.Value.type == ItemType.AllIngredients && !i.Value.IsBusy());
         }
+        else
+        {
+            newPosGO = _placesBusy.FirstOrDefault(i => i.Value.type == item.ItemType && !i.Value.IsBusy());
+        }
+        newPosGO.Value.AddIngredient(item);
+        item.transform.localPosition = newPosGO.Key.transform.localPosition;
         item.Rb = item.GetComponent<Rigidbody>();
         item.Rb.isKinematic = true;
         item.GetComponent<Collider>().enabled = false;

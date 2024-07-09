@@ -8,6 +8,11 @@ public class Pan : Dishes
         base.Start();
         _actionKeys.Add(KeyCode.E, () => { });
     }
+    private bool HasEmptyPlace()
+    {
+        // дописать метод, чтобы он проверял, доступно ли еще место в посуде или пошел ка ты нахуй
+        return false;
+    }
     public override bool TryCombine(Interactable interactable, out bool stayInHand)
     {
         stayInHand = false;
