@@ -58,7 +58,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: eeb4511ba3abaff439166a89a8d88b56, type: 2}
     - target: {fileID: 919132149155446097, guid: 434ba4670c579ab44a3d36f686c16e21, type: 3}
       propertyPath: m_Name
-      value: 3-5 sliced meat low
+      value: meat_sliced_3_default
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 434ba4670c579ab44a3d36f686c16e21, type: 3}
       propertyPath: m_Layer
@@ -144,6 +144,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <ObjectName>k__BackingField: Sliced meat
+  <TransformToFX>k__BackingField: {fileID: 0}
+  <ItemType>k__BackingField: 2
   _initRotation: {x: 0, y: 0, z: 0}
   _placeRotation: {x: 0, y: 0, z: 0}
   _rangeCookStates:
@@ -156,5 +158,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: dd500c4f9695b3d48b748184e087b479, type: 2}
   - {fileID: 11400000, guid: dd7c74d0f2d219848a4b9d47a8a19b59, type: 2}
   - {fileID: 11400000, guid: c647b006fa52d5c4aa760906a683a3e1, type: 2}
+  _totalCookTime: 0
   _itemsToSpawn:
   - {fileID: 4466151480065329971, guid: 069e6a846924bae418b37a4810377c6c, type: 3}

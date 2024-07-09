@@ -10,19 +10,19 @@ public class Dishes : Grabbable
     [SerializeField] private List<LimitItemsInDishes> _limitItems = new();
     private List<Ingredient> _ingredients = new();
     private Dictionary<GameObject, PlaceIngredientData> _placesBusy = new();
-    
     public IReadOnlyList<Ingredient> Ingredients { get { return _ingredients; } }
     
+    // called when allIngredients toggled
     private void OnAllIngredients()
     {
         _limitItems.Clear();
         if (allIngredients)
         {
-            _limitItems.Add(new LimitItemsInDishes(ItemType.AllIngredients, 0));
+            _limitItems.Add(new LimitItemsInDishes(ItemType.AllIngredients, 0, Quaternion.identity));
         }
         else
         {
-            _limitItems.Add(new LimitItemsInDishes(ItemType.None, 0));
+            _limitItems.Add(new LimitItemsInDishes(ItemType.None, 0, Quaternion.identity));
         }
     }
 
@@ -33,7 +33,7 @@ public class Dishes : Grabbable
         {
             limit.wherePlace.ForEach(gObj =>
             {
-                _placesBusy.Add(gObj, new PlaceIngredientData(new List<Ingredient>(), limit.maxCountPerPlace, limit.type));
+                _placesBusy.Add(gObj, new PlaceIngredientData(new List<Ingredient>(), limit.maxCountPerPlace, limit.type, limit.rotation));
             });
         });
         _actionKeys.Add(KeyCode.F, () => DropAllIngredients());
@@ -69,34 +69,17 @@ public class Dishes : Grabbable
     public virtual void PlaceIngredient(Ingredient item)
     {
         item.transform.SetParent(transform);
-        var newPosGO = _placesBusy.FirstOrDefault(i => i.Value.type == item.ItemType);
+        var newPosGO = _placesBusy.FirstOrDefault(i => i.Value.type == item.ItemType && !i.Value.IsBusy());
         if (newPosGO.Value != null)
         {
             newPosGO.Value.AddIngredient(item);
             item.transform.localPosition = newPosGO.Key.transform.localPosition;
         }
-
-
-
-        //if (newPosGO.Value != null)
-        //{
-        //    _placesBusy[newPosGO.Key].busy = true;
-        //    _placesBusy[newPosGO.Key].ingredients.Add(item);
-        //    item.transform.localPosition = newPosGO.Key.transform.localPosition;
-        //}
-        //else
-        //{
-        //    //var randomIndex = Random.Range(0, _placeToIngredient.Count);
-        //    //_placesBusy[_placeToIngredient[randomIndex]].ingredients.Add(item);
-        //    //_placesBusy[_placeToIngredient[randomIndex]].busy = true;
-        //    //item.transform.localPosition = _placeToIngredient[randomIndex].transform.localPosition;
-        //}
         item.Rb = item.GetComponent<Rigidbody>();
         item.Rb.isKinematic = true;
         item.GetComponent<Collider>().enabled = false;
-        item.transform.localRotation = Quaternion.Euler(0, 0, item.transform.rotation.eulerAngles.z);
+        item.transform.localRotation = newPosGO.Value.rotation; 
     }
-    // TODO: элементы не выкидываются, но запоминаются
     public virtual void DropIngredient()
     {
         if (_ingredients.Count > 0)
@@ -121,32 +104,39 @@ public class Dishes : Grabbable
     private void PrepareToDrop(Ingredient item)
     {
         item.transform.parent = null;
+        item.transform.localScale = item.InitialWorldScale;
         item.Rb.isKinematic = false;
         item.GetComponent<Collider>().enabled = true;
-    }
-    private bool HasEmptyPlace(Cookable cookable)
-    {
-        // need to check if the record exists
-        var item = _placesBusy.FirstOrDefault(item => item.Value.type == cookable.ItemType);
-        if (item.Value != null)
+        foreach (var ingredient in _placesBusy.Where(kv => kv.Value.type == item.ItemType))
         {
-            return !item.Value.IsBusy();
+            ingredient.Value.RemoveIngredient(item);
         }
-        return false;
+    }
+    private bool HasEmptyPlace(Ingredient cookable)
+    {
+        return _placesBusy.Any(item => item.Value.type == cookable.ItemType && !item.Value.IsBusy());
+    }
+    private bool HasAnotherItems(Ingredient cookable)
+    {
+        return _placesBusy.Any(item => item.Value.type != cookable.ItemType && item.Value.IsBusy());
     }
     public override bool TryCombine(Interactable interactable, out bool stayInHand)
     {
         stayInHand = false;
         if (interactable == null) return false;
-        if (interactable is Cookable cookable)
+        if (interactable is Ingredient ingredient)
         {
-            // need to check to see if there's space in the dish before adding
-            if (!HasEmptyPlace(cookable))
+            if (!HasEmptyPlace(ingredient))
             {
                 // notify player that dish don't contain empty place 
                 return false;
             }
-            AddIngredient(cookable);
+            if (HasAnotherItems(ingredient) && !allIngredients)
+            {
+                // notify player that dish contains another items
+                return false;
+            }
+            AddIngredient(ingredient);
             stayInHand = true;
             return true;
         }

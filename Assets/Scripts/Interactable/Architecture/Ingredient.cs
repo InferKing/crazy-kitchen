@@ -2,6 +2,12 @@ using UnityEngine;
 
 public class Ingredient : Grabbable
 {
+    public Vector3 InitialWorldScale { get; private set; }
+    protected override void Start()
+    {
+        base.Start();
+        InitialWorldScale = transform.lossyScale;
+    }
     public override void OnEnter()
     {
         base.OnEnter();

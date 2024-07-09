@@ -54,7 +54,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 8fd0ffcb4f5d37a4d88d02aac2f2998a, type: 3}
       propertyPath: m_Name
-      value: chopped meat_butter
+      value: meat_chopped_butter
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 8fd0ffcb4f5d37a4d88d02aac2f2998a, type: 3}
       propertyPath: m_Layer
@@ -141,6 +141,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <ObjectName>k__BackingField: Chopped meat and butter
   <TransformToFX>k__BackingField: {fileID: 0}
+  <ItemType>k__BackingField: 9
   _initRotation: {x: 90, y: 0, z: 0}
   _placeRotation: {x: 0, y: 0, z: 0}
   _rangeCookStates:
