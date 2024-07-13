@@ -10,14 +10,13 @@ public class Pan : Dishes
     }
     private bool HasEmptyPlace()
     {
-        // дописать метод, чтобы он проверял, доступно ли еще место в посуде или пошел ка ты нахуй
-        return false;
+        return Ingredients.Count != Limits[0].maxCountPerPlace;
     }
     public override bool TryCombine(Interactable interactable, out bool stayInHand)
     {
         stayInHand = false;
         if (interactable == null) return false;
-        if (interactable is Cookable cookable)
+        if (interactable is Cookable cookable && HasEmptyPlace())
         {
             AddIngredient(cookable);
             stayInHand = true;

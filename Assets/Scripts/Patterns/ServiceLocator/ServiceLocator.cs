@@ -20,7 +20,6 @@ public class ServiceLocator
             Debug.LogError($"{key} not registered with {GetType().Name}");
             throw new InvalidOperationException();
         }
-
         return (T)_services[key];
     }
     public void Register<T>(T service) where T : IService

@@ -10,7 +10,8 @@ public class Dishes : Grabbable
     [SerializeField] private List<LimitItemsInDishes> _limitItems = new();
     private List<Ingredient> _ingredients = new();
     private Dictionary<GameObject, PlaceIngredientData> _placesBusy = new();
-    public IReadOnlyList<Ingredient> Ingredients { get { return _ingredients; } }
+    public IReadOnlyList<Ingredient> Ingredients => _ingredients;
+    public IReadOnlyList<LimitItemsInDishes> Limits => _limitItems;
     
     // called when allIngredients toggled
     private void OnAllIngredients()
@@ -112,9 +113,15 @@ public class Dishes : Grabbable
         item.transform.localScale = item.InitialWorldScale;
         item.Rb.isKinematic = false;
         item.GetComponent<Collider>().enabled = true;
-        foreach (var ingredient in _placesBusy.Where(kv => kv.Value.type == item.ItemType))
+        if (!allIngredients)
         {
-            ingredient.Value.RemoveIngredient(item);
+            var result = _placesBusy.FirstOrDefault(kv => kv.Value.type == item.ItemType && !kv.Value.IsEmpty());
+            result.Value.RemoveIngredient(item);
+        }
+        else
+        {
+            var result = _placesBusy.FirstOrDefault(kv => !kv.Value.IsEmpty());
+            result.Value.RemoveIngredient(item);
         }
     }
     private bool HasEmptyPlace(Ingredient cookable)

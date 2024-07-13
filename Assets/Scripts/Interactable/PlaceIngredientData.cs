@@ -16,6 +16,7 @@ public class PlaceIngredientData
         this.rotation = rotation;
     }
     public bool IsBusy() => ingredients.Count == maxAmount;
+    public bool IsEmpty() => ingredients.Count == 0;
     public void AddIngredient(Ingredient ingredient)
     {
         ingredients.Add(ingredient);

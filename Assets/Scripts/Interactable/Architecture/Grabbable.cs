@@ -31,7 +31,7 @@ public class Grabbable : Interactable
     public virtual void Drop()
     {
         GetByUser = false;
-        transform.DORotate(IgnoreYRotation, 0.1f);
+        transform.DORotate(IgnoreYRotation, 0.15f);
         Rb.isKinematic = false;
         Rb.AddForce(Camera.main.transform.forward * 2, ForceMode.Impulse);
         Bus.Invoke(new ItemDroppedSignal());
