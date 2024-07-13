@@ -9,7 +9,7 @@ public class HobToggle : Interactable, IObservable
 {
     [SerializeField] private List<Vector3> _rotations;
     private StateMachine<HobToggleState> _fsm;
-    private List<IObserver> _observers;
+    private List<IObserver> _observers = new();
     private void OnValidate()
     {
         int length = Enum.GetValues(typeof(HobToggleState)).Length;
@@ -21,7 +21,6 @@ public class HobToggle : Interactable, IObservable
     protected override void Start()
     {
         base.Start();
-        _observers = new List<IObserver>();
         // this problem could be solved by simply looping the list, but we're not looking for easy ways :)
         // let me explain why: I don't know if the conditions of transition between states will be added, so I'll leave it like that.
         transform.localEulerAngles = _rotations[0];
