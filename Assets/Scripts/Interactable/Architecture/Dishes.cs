@@ -115,7 +115,7 @@ public class Dishes : Grabbable
         item.GetComponent<Collider>().enabled = true;
         if (!allIngredients)
         {
-            var result = _placesBusy.FirstOrDefault(kv => kv.Value.type == item.ItemType && !kv.Value.IsEmpty());
+            var result = _placesBusy.FirstOrDefault(kv => kv.Value.type == item.ItemType && !kv.Value.IsEmpty() && kv.Value.ingredients.Contains(item));
             result.Value.RemoveIngredient(item);
         }
         else
