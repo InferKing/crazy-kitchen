@@ -14,4 +14,8 @@ public struct Reputation
             _reputation = Mathf.Clamp(value, 0, 100);
         }
     }
+    public Reputation(float reputation)
+    {
+        _reputation = reputation;
+    }
 }

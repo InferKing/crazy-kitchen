@@ -141,7 +141,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <ObjectName>k__BackingField: Chopped meat and butter
   <TransformToFX>k__BackingField: {fileID: 0}
-  <ItemType>k__BackingField: 9
+  <ItemType>k__BackingField: 11
   _initRotation: {x: 90, y: 0, z: 0}
   _placeRotation: {x: 0, y: 0, z: 0}
   _rangeCookStates:

@@ -1,6 +1,8 @@
 public enum ItemType
 {
     None,
+    Butter,
+    SlicedButter,
     Meat,
     SlicedMeat,
     ChoppedMeat,
@@ -14,5 +16,7 @@ public enum ItemType
     Pepper,
     Box,
     Pan,
+    Spices,
+    Drunk,
     AllIngredients
 }

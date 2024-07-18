@@ -1,20 +1,28 @@
 [System.Serializable]
 public class Wallet
 {
-    [UnityEngine.SerializeField] private float _curBalance;
+    [field: UnityEngine.SerializeField] public float Balance { get; private set; }
+    private float _balance;
+    public Wallet() 
+    { 
+        _balance = Balance;
+    }
+    public Wallet(float balance)
+    {
+        _balance = balance;
+    }
     public bool TryPurchase(float money)
     {
-        if (_curBalance < money)
+        if (_balance < money)
         {
             return false;
         }
-        _curBalance -= money;
+        _balance -= money;
         return true;
     }
     public void AddMoney(float money)
     {
         if (money <= 0) return;
-        _curBalance += money;
+        _balance += money;
     }
-    public float Balance => _curBalance;
 }

@@ -3,15 +3,17 @@ using System.Collections.Generic;
 using System;
 using UnityEngine;
 
-public class WorldTimer
+public class WorldTimer : IService
 {
+    private EventBus _bus;
     private DateTime _dateTime, _lastDateBeforeSkip;
     public string TimeOnly => _dateTime.ToString("t"); 
     public string DateOnly => _dateTime.ToString("d"); 
     public string FullDateTime => _dateTime.ToString("f"); 
-    public WorldTimer(DateTime time) 
+    public WorldTimer(DateTime time, EventBus bus) 
     {
         _dateTime = time;
+        _bus = bus;
     }
     public void Update(TimeSpan time)
     {
@@ -20,6 +22,7 @@ public class WorldTimer
         {
             _lastDateBeforeSkip = _dateTime;
         }
+        _bus.Invoke(new UpdatedTimerSignal(this));
     }
     public bool TrySetNextDay()
     {

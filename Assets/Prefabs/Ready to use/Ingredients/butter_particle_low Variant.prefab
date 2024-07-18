@@ -96,10 +96,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <ObjectName>k__BackingField: Sliced butter
+  <TransformToFX>k__BackingField: {fileID: 0}
+  <ItemType>k__BackingField: 2
   _initRotation: {x: 0, y: 0, z: 0}
   _placeRotation: {x: 0, y: 0, z: 0}
   _rangeCookStates:
   - {fileID: 11400000, guid: b2a3591e4b6db7742a9ea1a6ea5a4abf, type: 2}
+  _totalCookTime: 0
 --- !u!65 &8207515499561654700
 BoxCollider:
   m_ObjectHideFlags: 0

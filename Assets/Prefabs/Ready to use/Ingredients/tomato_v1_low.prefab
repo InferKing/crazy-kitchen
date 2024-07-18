@@ -30,11 +30,11 @@ Transform:
   m_GameObject: {fileID: 8369567198331551642}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.029586976, y: 0.09375892, z: -0.0046399594}
-  m_LocalScale: {x: 95.29764, y: 100, z: 100}
+  m_LocalScale: {x: 90.8164, y: 100, z: 100}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &774942389798113536
 MeshFilter:
@@ -100,7 +100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <ObjectName>k__BackingField: Tomato
   <TransformToFX>k__BackingField: {fileID: 0}
-  <ItemType>k__BackingField: 5
+  <ItemType>k__BackingField: 7
   _initRotation: {x: 0, y: 0, z: 0}
   _placeRotation: {x: 0, y: 0, z: 0}
 --- !u!65 &-1292206039926032873

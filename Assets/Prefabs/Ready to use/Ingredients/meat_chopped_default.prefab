@@ -145,7 +145,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <ObjectName>k__BackingField: Chopped meat
   <TransformToFX>k__BackingField: {fileID: 0}
-  <ItemType>k__BackingField: 3
+  <ItemType>k__BackingField: 5
   _initRotation: {x: 90, y: 0, z: 0}
   _placeRotation: {x: 0, y: 0, z: 0}
   _rangeCookStates:

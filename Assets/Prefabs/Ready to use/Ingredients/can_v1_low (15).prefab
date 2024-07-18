@@ -100,6 +100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <ObjectName>k__BackingField: Can
   <TransformToFX>k__BackingField: {fileID: 0}
+  <ItemType>k__BackingField: 12
   _initRotation: {x: 0, y: 0, z: 0}
   _placeRotation: {x: 0, y: 0, z: 0}
 --- !u!65 &9126174297865899081
