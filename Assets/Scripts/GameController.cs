@@ -13,7 +13,7 @@ public class GameController : MonoBehaviour, IInitializable
         // Инициализирую игрока
         // В дальнейшем нужно поменять на подгрузку с файла
         _bus = ServiceLocator.Instance.Get<EventBus>();
-        _player = new(new Wallet(1500), new Reputation(0), new Reputation(0), Difficulty.Medium);
+        _player = new(new Wallet(1500), new Reputation(0), new Reputation(0), Difficulty.Medium, new ShopCart(_bus));
         _timer = new WorldTimer(new System.DateTime(2024, 2, 12, 9, 0, 0), _bus);
         _bus.Subscribe<ServicesInitializedSignal>(OnServicesInitialized);
         ServiceLocator.Instance.Register(_player);
